@@ -14,59 +14,70 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
 
-background:#000;
-background-image:url("cover/cover.jpg.jpeg");
-background-size:contain;
-background-position:top center;
-background-repeat:no-repeat;
-
-height:100vh;
-
+background:#111;
 display:flex;
 justify-content:center;
 align-items:center;
+min-height:100vh;
 
 }
 
-.overlay{
+.container{
 
-background:rgba(0,0,0,.45);
-
-padding:50px;
-
-border-radius:25px;
-
+width:100%;
+max-width:500px;
+padding:20px;
 text-align:center;
 
-color:white;
+}
 
-width:90%;
-max-width:700px;
+.photo{
 
-margin-top:250px;
+width:100%;
+border-radius:25px;
+box-shadow:0 10px 35px rgba(0,0,0,.4);
+
+animation:fadePhoto 2s ease;
+
+}
+
+.content{
+
+margin-top:25px;
+opacity:0;
+
+animation:fadeText 1.5s ease forwards;
+animation-delay:2s;
 
 }
 
 h1{
 
-font-size:48px;
+color:#ff4f8b;
+font-size:42px;
+margin-bottom:15px;
 
+}
+
+h2{
+
+color:white;
+font-size:28px;
 margin-bottom:20px;
 
 }
 
-.quote{
+p{
 
-font-size:24px;
-
+color:#dddddd;
+font-size:20px;
+line-height:1.6;
 margin-bottom:35px;
-
-line-height:1.5;
 
 }
 
@@ -74,7 +85,7 @@ line-height:1.5;
 
 display:inline-block;
 
-padding:18px 45px;
+padding:18px 40px;
 
 background:#ff4f8b;
 
@@ -82,9 +93,9 @@ color:white;
 
 text-decoration:none;
 
-font-size:24px;
-
 border-radius:50px;
+
+font-size:22px;
 
 transition:.3s;
 
@@ -92,9 +103,45 @@ transition:.3s;
 
 .button:hover{
 
+transform:scale(1.05);
+
 background:#ff2f73;
 
-transform:scale(1.05);
+}
+
+@keyframes fadePhoto{
+
+from{
+
+opacity:0;
+transform:scale(.95);
+
+}
+
+to{
+
+opacity:1;
+transform:scale(1);
+
+}
+
+}
+
+@keyframes fadeText{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
 
 }
 
@@ -104,23 +151,31 @@ transform:scale(1.05);
 
 <body>
 
-<div class="overlay">
+<div class="container">
+
+<img class="photo" src="cover/cover.jpg.jpeg">
+
+<div class="content">
 
 <h1>❤️ VINAN FOREVER ❤️</h1>
 
-<div class="quote">
+<h2>Welcome to Our Forever ❤️</h2>
+
+<p>
 
 Every love story is beautiful...<br>
 
 but ours is my favorite.
 
-</div>
+</p>
 
 <a class="button" href="questions/page1.html">
 
 Begin Our Journey ❤️
 
 </a>
+
+</div>
 
 </div>
 
