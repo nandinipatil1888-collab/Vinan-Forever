@@ -1,57 +1,71 @@
 <!DOCTYPE html>
 
-<html>
-
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Questions ❤️</title>
+<title>Our Questions ❤️</title>
 
 <style>
 
 body{
-font-family:Arial,sans-serif;
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
 background:#fff5f8;
-padding:30px;
-max-width:800px;
-margin:auto;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.card{
+width:90%;
+max-width:650px;
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+text-align:center;
 }
 
 h1{
-text-align:center;
 color:#ff4f8b;
-margin-bottom:30px;
-}
-
-.question{
-background:white;
-padding:20px;
 margin-bottom:15px;
-border-radius:15px;
-box-shadow:0 3px 10px rgba(0,0,0,.1);
 }
 
-textarea{
-width:100%;
-margin-top:10px;
-padding:10px;
-border-radius:10px;
-border:1px solid #ddd;
+#count{
+color:#888;
+margin-bottom:25px;
+font-size:18px;
 }
 
-.button{
-display:block;
-width:220px;
-margin:30px auto;
-text-align:center;
+#question{
+font-size:28px;
+line-height:1.5;
+min-height:120px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.buttons{
+margin-top:35px;
+display:flex;
+justify-content:space-between;
+}
+
+button{
+border:none;
+padding:15px 30px;
+border-radius:50px;
 background:#ff4f8b;
 color:white;
-padding:15px;
-border-radius:50px;
-text-decoration:none;
-font-size:20px;
+font-size:18px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff2f73;
 }
 
 </style>
@@ -60,62 +74,94 @@ font-size:20px;
 
 <body>
 
+<div class="card">
+
 <h1>❤️ Our Questions ❤️</h1>
 
-<div class="question">
-1. What was your first impression of me?
-<textarea rows="3"></textarea>
+<div id="count">Question 1 of 10</div>
+
+<div id="question"></div>
+
+<div class="buttons">
+
+<button onclick="previousQuestion()">Previous</button>
+
+<button onclick="nextQuestion()">Next ❤️</button>
+
 </div>
 
-<div class="question">
-2. What is your favorite memory of us?
-<textarea rows="3"></textarea>
 </div>
 
-<div class="question">
-3. What is one thing you love most about me?
-<textarea rows="3"></textarea>
-</div>
+<script>
 
-<div class="question">
-4. What song reminds you of us?
-<textarea rows="3"></textarea>
-</div>
+const questions=[
 
-<div class="question">
-5. What is one dream you want us to achieve together?
-<textarea rows="3"></textarea>
-</div>
+"What was your first impression of me? ❤️",
 
-<div class="question">
-6. What is your favorite photo of us?
-<textarea rows="3"></textarea>
-</div>
+"What is your favorite memory of us? ❤️",
 
-<div class="question">
-7. What is something I do that always makes you smile?
-<textarea rows="3"></textarea>
-</div>
+"What is one thing you love most about me? ❤️",
 
-<div class="question">
-8. What place would you love to visit with me?
-<textarea rows="3"></textarea>
-</div>
+"What song reminds you of us? ❤️",
 
-<div class="question">
-9. What is one thing you never want to change about us?
-<textarea rows="3"></textarea>
-</div>
+"What is one dream you want us to achieve together? ❤️",
 
-<div class="question">
-10. What does forever with me look like to you?
-<textarea rows="3"></textarea>
-</div>
+"What is your favorite photo of us? ❤️",
 
-<a class="button" href="#">
-Next Page ❤️</a>
+"What is something I do that always makes you smile? ❤️",
+
+"What place would you love to visit with me? ❤️",
+
+"What is one thing you never want to change about us? ❤️",
+
+"What does forever with me look like? ❤️"
+
+];
+
+let current=0;
+
+function showQuestion(){
+
+document.getElementById("question").innerHTML=questions[current];
+
+document.getElementById("count").innerHTML="Question "+(current+1)+" of 10";
+
+}
+
+showQuestion();
+
+function nextQuestion(){
+
+if(current<9){
+
+current++;
+
+showQuestion();
+
+}
+
+else{
+
+window.location.href="../memories/index.html";
+
+}
+
+}
+
+function previousQuestion(){
+
+if(current>0){
+
+current--;
+
+showQuestion();
+
+}
+
+}
+
+</script>
 
 </body>
 
 </html>
-
