@@ -80,7 +80,16 @@ background:#ff2f73;
 
 <div id="count">Question 1 of 10</div>
 
+<img id="photo" src="photo.jpeg" style="width:100%;max-height:350px;object-fit:cover;border-radius:20px;margin-bottom:20px;">
+
 <div id="question"></div>
+
+<textarea
+id="answer"
+placeholder="Write your answer here... ❤️"
+style="width:100%;height:140px;margin-top:25px;padding:15px;font-size:16px;border-radius:15px;border:2px solid #ffb6cf;resize:none;"></textarea>
+
+<div id="message" style="display:none;color:#ff4f8b;font-weight:bold;margin-top:20px;"></div>
 
 <div class="buttons">
 
@@ -96,35 +105,70 @@ background:#ff2f73;
 
 const questions=[
 
-"What was your first impression of me? ❤️",
+{
+question:"What was your first impression of me? ❤️",
+image:"photo.jpeg"
+},
 
-"What is your favorite memory of us? ❤️",
+{
+question:"What is your favorite memory of us? ❤️",
+image:"IMG_1492.jpeg"
+},
 
-"What is one thing you love most about me? ❤️",
+{
+question:"What is one thing you love most about me? ❤️",
+image:"IMG_1493.jpeg"
+},
 
-"What song reminds you of us? ❤️",
+{
+question:"What song reminds you of us? ❤️",
+image:"IMG_1494.jpeg"
+},
 
-"What is one dream you want us to achieve together? ❤️",
+{
+question:"What is one dream you want us to achieve together? ❤️",
+image:"IMG_1495.jpeg"
+},
 
-"What is your favorite photo of us? ❤️",
+{
+question:"What is your favorite photo of us? ❤️",
+image:"IMG_1496.jpeg"
+},
 
-"What is something I do that always makes you smile? ❤️",
+{
+question:"What is something I do that always makes you smile? ❤️",
+image:"IMG_1497.jpeg"
+},
 
-"What place would you love to visit with me? ❤️",
+{
+question:"What place would you love to visit with me? ❤️",
+image:"IMG_1498.jpeg"
+},
 
-"What is one thing you never want to change about us? ❤️",
+{
+question:"What is one thing you never want to change about us? ❤️",
+image:"IMG_1499.jpeg"
+},
 
-"What does forever with me look like? ❤️"
+{
+question:"What does forever with me look like? ❤️",
+image:"IMG_1500.jpeg"
+}
 
 ];
-
 let current=0;
 
 function showQuestion(){
 
-document.getElementById("question").innerHTML=questions[current];
+document.getElementById("question").innerHTML=questions[current].question;
+
+document.getElementById("photo").src=questions[current].image;
 
 document.getElementById("count").innerHTML="Question "+(current+1)+" of 10";
+
+document.getElementById("answer").value=localStorage.getItem("answer"+current)||"";
+
+document.getElementById("message").style.display="none";
 
 }
 
@@ -132,19 +176,51 @@ showQuestion();
 
 function nextQuestion(){
 
+localStorage.setItem("answer"+current,document.getElementById("answer").value);
+
+const messages=[
+
+"You always make my heart smile ❤️",
+
+"Every memory with you is priceless ❤️",
+
+"I can't wait to read all your answers ❤️",
+
+"You are my favourite person ❤️",
+
+"Our story keeps getting more beautiful ❤️",
+
+"You make every day special ❤️",
+
+"I'll treasure these words forever ❤️",
+
+"My heart is full because of you ❤️",
+
+"Almost there, my love ❤️",
+
+"Thank you for completing our love story ❤️"
+
+];
+
+document.getElementById("message").innerHTML=messages[current];
+
+document.getElementById("message").style.display="block";
+
+setTimeout(function(){
+
 if(current<9){
 
 current++;
 
 showQuestion();
 
-}
-
-else{
+}else{
 
 window.location.href="../memories/index.html";
 
 }
+
+},1200);
 
 }
 
