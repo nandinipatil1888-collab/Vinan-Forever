@@ -174,7 +174,11 @@ document.getElementById("message").style.display="none";
 
 showQuestion();
 
+let waiting=false;
+
 function nextQuestion(){
+
+if(!waiting){
 
 localStorage.setItem("answer"+current,document.getElementById("answer").value);
 
@@ -188,15 +192,15 @@ const messages=[
 
 "You are my favourite person ❤️",
 
-"Our story keeps getting more beautiful ❤️",
+"You make every day brighter ❤️",
 
-"You make every day special ❤️",
+"Being with you feels like home ❤️",
 
-"I'll treasure these words forever ❤️",
+"My heart chooses you every single day ❤️",
 
-"My heart is full because of you ❤️",
+"Our story is my favourite story ❤️",
 
-"Almost there, my love ❤️",
+"Almost at the end... but never the end of us ❤️",
 
 "Thank you for completing our love story ❤️"
 
@@ -206,7 +210,17 @@ document.getElementById("message").innerHTML=messages[current];
 
 document.getElementById("message").style.display="block";
 
-setTimeout(function(){
+document.querySelector(".buttons button:last-child").innerHTML="Continue ❤️";
+
+waiting=true;
+
+}else{
+
+waiting=false;
+
+document.getElementById("message").style.display="none";
+
+document.querySelector(".buttons button:last-child").innerHTML="Next ❤️";
 
 if(current<9){
 
@@ -220,7 +234,7 @@ window.location.href="../memories/index.html";
 
 }
 
-},1200);
+}
 
 }
 
