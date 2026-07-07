@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reasons I Love You ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#fff5f8;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.card{
+width:90%;
+max-width:650px;
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+text-align:center;
+}
+
+h1{
+color:#ff4f8b;
+margin-bottom:15px;
+}
+
+#count{
+color:#888;
+font-size:18px;
+margin-bottom:25px;
+}
+
+#reason{
+font-size:28px;
+line-height:1.6;
+min-height:180px;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#444;
+transition:0.4s;
+}
+
+button{
+border:none;
+padding:16px 35px;
+border-radius:50px;
+background:#ff4f8b;
+color:white;
+font-size:20px;
+cursor:pointer;
+margin-top:25px;
+}
+
+button:hover{
+background:#ff2f73;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>❤️ Reasons I Love You ❤️</h1>
+
+<div id="count">
+Reason 1 of 50 ❤️
+</div>
+
+<div id="reason"></div>
+
+<button onclick="nextReason()">
+Show Me Another Reason ❤️
+</button>
+
+</div>
+
+<script>
+
+const reasons=[
+
+"Because your smile makes my whole day brighter ❤️",
+
+"Because your voice calms my heart ❤️",
+
+"Because you make me laugh even on my worst days ❤️",
+
+"Because loving you feels like home ❤️",
+
+"Because you always make me feel special ❤️"
+
+];
+
+let current=0;
+
+function showReason(){
+
+document.getElementById("reason").innerHTML=reasons[current];
+
+document.getElementById("count").innerHTML="Reason "+(current+1)+" of 50 ❤️";
+
+}
+
+showReason();
+
+function nextReason(){
+
+if(current<reasons.length-1){
+
+current++;
+
+showReason();
+
+}else{
+
+document.getElementById("reason").innerHTML="These are only a few reasons... my heart could write thousands more. ❤️";
+
+document.querySelector("button").innerHTML="Continue Our Forever ❤️";
+
+document.querySelector("button").onclick=function(){
+
+window.location.href="../bucketlist/index.html";
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
