@@ -654,3 +654,449 @@ document.body.appendChild(popup);
 </body>
 
 </html>
+"Because your smile can brighten even my darkest day ❤️",
+"Because hearing your voice instantly calms my heart ❤️",
+"Because every moment with you becomes my favourite memory ❤️",
+"Because your hugs feel like the safest place in the world ❤️",
+"Because you always know how to make me smile ❤️",
+"Because life became more beautiful after you came into it ❤️",
+"Because you understand me even without words ❤️",
+"Because your laugh is my favourite sound ❤️",
+"Because every little thing reminds me of you ❤️",
+"Because you make ordinary days feel magical ❤️",
+
+"Because your love gives me strength ❤️",
+"Because you always make me feel special ❤️",
+"Because your happiness means so much to me ❤️",
+"Because you make my heart skip a beat ❤️",
+"Because I can never stay mad at you for long ❤️",
+"Because every call with you becomes my favourite part of the day ❤️",
+"Because I love the way you care for me ❤️",
+"Because you're the first person I want to tell everything to ❤️",
+"Because you believe in me when I don't believe in myself ❤️",
+"Because you make me feel at home wherever you are ❤️",
+
+"Because your eyes tell stories words never could ❤️",
+"Because every memory with you is priceless ❤️",
+"Because loving you feels so natural ❤️",
+"Because you make me laugh even on my worst days ❤️",
+"Because your little habits are adorable ❤️",
+"Because you make me want to become a better person ❤️",
+"Because every goodbye only makes me miss you more ❤️",
+"Because I still smile whenever your name appears on my phone ❤️",
+"Because no one understands me like you do ❤️",
+"Because you make my world brighter every single day ❤️",
+
+"Because your kindness inspires me ❤️",
+"Because you're my comfort after every difficult day ❤️",
+"Because even silence feels beautiful with you ❤️",
+"Because your hugs fix everything ❤️",
+"Because I never get tired of talking to you ❤️",
+"Because you're my favourite notification ❤️",
+"Because every dream feels better when you're part of it ❤️",
+"Because every journey is better with you ❤️",
+"Because you're my peace in this chaotic world ❤️",
+"Because you're my favourite hello and my hardest goodbye ❤️",
+
+"Because you've filled my life with countless beautiful memories ❤️",
+"Because your love makes me stronger every day ❤️",
+"Because you always know how to make me feel loved ❤️",
+"Because I still fall in love with you every single day ❤️",
+"Because my heart chose you long ago and still chooses you ❤️",
+"Because forever doesn't feel long enough with you ❤️",
+"Because you're my biggest blessing ❤️",
+"Because you're the reason behind my happiest smiles ❤️",
+"Because I love everything about you ❤️",
+"Because... you're simply YOU ❤️"
+
+];
+
+let current=0;
+
+const reason=document.getElementById("reason");
+const count=document.getElementById("count");
+const btn=document.getElementById("nextBtn");
+function typeWriter(text){
+
+reason.innerHTML="";
+
+let i=0;
+
+const typing=setInterval(()=>{
+
+reason.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(typing);
+
+}
+
+},30);
+
+}
+
+function showReason(){
+
+count.innerHTML="Reason "+(current+1)+" of 50 ❤️";
+
+typeWriter(reasons[current]);
+
+}
+
+showReason();
+
+btn.onclick=function(){
+
+current++;
+
+if(current<reasons.length){
+
+reason.style.opacity="0";
+
+setTimeout(()=>{
+
+showReason();
+
+reason.style.opacity="1";
+
+createSparkles();
+
+},300);
+
+}else{
+
+reason.innerHTML="<b>❤️ These are only the beginning...<br><br>I have thousands more reasons to love you. ❤️</b>";
+
+count.innerHTML="Forever & Always ❤️";
+
+btn.innerHTML="Continue Our Forever ❤️";
+
+btn.disabled=true;
+
+}
+
+};
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=Math.random()>0.5?"❤️":"💖";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(18+Math.random()*20)+"px";
+
+heart.style.animationDuration=(5+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+},700);
+
+setInterval(()=>{
+
+const petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.fontSize=(18+Math.random()*12)+"px";
+
+petal.style.animationDuration=(6+Math.random()*4)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+
+petal.remove();
+
+},9000);
+
+},1800);
+
+function createSparkles(){
+
+for(let i=0;i<12;i++){
+
+const sparkle=document.createElement("div");
+
+sparkle.className="sparkle";
+
+sparkle.innerHTML=Math.random()>.5?"✨":"💖";
+
+sparkle.style.left=(window.innerWidth/2+(Math.random()*220-110))+"px";
+
+sparkle.style.top=(window.innerHeight/2+(Math.random()*120-60))+"px";
+
+sparkle.style.fontSize=(18+Math.random()*14)+"px";
+
+document.body.appendChild(sparkle);
+
+setTimeout(()=>{
+
+sparkle.remove();
+
+},2500);
+
+}
+
+}
+/* ❤️ Music Button ❤️ */
+
+const musicBtn=document.createElement("button");
+
+musicBtn.innerHTML="🎵";
+
+musicBtn.style.position="fixed";
+musicBtn.style.top="20px";
+musicBtn.style.right="20px";
+musicBtn.style.width="58px";
+musicBtn.style.height="58px";
+musicBtn.style.borderRadius="50%";
+musicBtn.style.border="none";
+musicBtn.style.background="#ff4f8b";
+musicBtn.style.color="white";
+musicBtn.style.fontSize="24px";
+musicBtn.style.cursor="pointer";
+musicBtn.style.zIndex="999";
+musicBtn.style.boxShadow="0 0 20px rgba(255,79,139,.45)";
+
+document.body.appendChild(musicBtn);
+
+musicBtn.onclick=function(){
+
+alert("🎵 Romantic background music will be added in the final version ❤️");
+
+};
+
+/* ❤️ Love Letter ❤️ */
+
+const letter=document.createElement("div");
+
+letter.innerHTML="💌";
+
+letter.style.position="fixed";
+letter.style.bottom="25px";
+letter.style.right="20px";
+letter.style.fontSize="42px";
+letter.style.cursor="pointer";
+letter.style.zIndex="999";
+
+document.body.appendChild(letter);
+
+/* ❤️ Voice Message ❤️ */
+
+const voiceMessage=new Audio("letters/New Recording.m4a");
+
+voiceMessage.preload="auto";
+
+voiceMessage.volume=1;
+
+/* ❤️ Letter Photos ❤️ */
+
+const letterPhotos=[
+"letters/IMG_0500.jpeg",
+"letters/IMG_0503.jpeg",
+"letters/IMG_0558.jpeg",
+"letters/IMG_0639.jpeg",
+"letters/IMG_0711.jpeg",
+"letters/IMG_0926.jpeg",
+"letters/IMG_0949.jpeg",
+"letters/IMG_0992.jpeg",
+"letters/IMG_1135.jpeg",
+"letters/IMG_1163.jpeg"
+];
+
+let photoIndex=0;
+
+let slideshow;
+
+const popup=document.createElement("div");
+
+popup.style.position="fixed";
+popup.style.top="0";
+popup.style.left="0";
+popup.style.width="100%";
+popup.style.height="100%";
+popup.style.display="none";
+popup.style.justifyContent="center";
+popup.style.alignItems="center";
+popup.style.background="rgba(0,0,0,.7)";
+popup.style.zIndex="1000";
+
+popup.innerHTML=`
+
+<div style="
+background:white;
+width:90%;
+max-width:430px;
+padding:28px;
+border-radius:28px;
+text-align:center;
+box-shadow:0 0 45px rgba(255,79,139,.4);
+animation:fadeUp .5s;
+">
+
+<div style="
+width:170px;
+height:170px;
+margin:auto;
+border-radius:50%;
+overflow:hidden;
+border:5px solid #fff;
+box-shadow:0 0 25px rgba(255,79,139,.35);
+">
+
+<img
+id="letterPhoto"
+src="letters/IMG_0500.jpeg"
+style="
+width:100%;
+height:100%;
+object-fit:cover;
+transition:opacity 1s;
+">
+
+</div>
+
+<h2 style="
+margin-top:20px;
+color:#ff4f8b;
+">
+
+💌 A Letter For You ❤️
+
+</h2>
+
+<p style="
+margin-top:18px;
+line-height:1.8;
+font-size:18px;
+color:#555;
+">
+
+Hey Handsome... ❤️
+
+<br><br>
+
+Every reason on this page came straight from my heart.
+
+<br><br>
+
+Even after these fifty reasons...
+
+I'd still have thousands more waiting just for you.
+
+<br><br>
+
+Forever Yours ❤️
+
+<br>
+
+<b>Nandini ❤️</b>
+
+</p>
+
+<button id="closePopup"
+style="
+margin-top:22px;
+padding:15px 28px;
+border:none;
+border-radius:40px;
+background:#ff4f8b;
+color:white;
+font-size:18px;
+cursor:pointer;
+">
+
+Close ❤️
+
+</button>
+
+</div>
+
+`;
+
+document.body.appendChild(popup);
+function startLetterSlideshow(){
+
+const img=document.getElementById("letterPhoto");
+
+clearInterval(slideshow);
+
+slideshow=setInterval(()=>{
+
+img.style.opacity="0";
+
+setTimeout(()=>{
+
+photoIndex=(photoIndex+1)%letterPhotos.length;
+
+img.src=letterPhotos[photoIndex];
+
+img.style.opacity="1";
+
+},700);
+
+},3500);
+
+}
+
+letter.onclick=function(){
+
+popup.style.display="flex";
+
+photoIndex=0;
+
+document.getElementById("letterPhoto").src=letterPhotos[0];
+
+voiceMessage.pause();
+voiceMessage.currentTime=0;
+
+setTimeout(()=>{
+
+voiceMessage.play().catch(()=>{});
+
+},800);
+
+startLetterSlideshow();
+
+};
+
+popup.onclick=function(e){
+
+if(e.target.id==="closePopup"){
+
+popup.style.display="none";
+
+clearInterval(slideshow);
+
+voiceMessage.pause();
+
+voiceMessage.currentTime=0;
+
+}
+
+};
+
+createSparkles();
+
+</script>
+
+</body>
+
+</html>
