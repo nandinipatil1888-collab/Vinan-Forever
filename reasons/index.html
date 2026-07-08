@@ -498,15 +498,41 @@ popup.style.width="100%";
 popup.style.height="100%";
 popup.style.background="rgba(0,0,0,.65)";
 popup.style.display="none";
+
+clearInterval(slideshow);
 popup.style.justifyContent="center";
 popup.style.alignItems="center";
 popup.style.zIndex="1000";
 
 popup.innerHTML=`
 
-<div style="width:90%;max-width:420px;background:white;padding:30px;border-radius:25px;text-align:center;box-shadow:0 0 35px rgba(255,79,139,.4);">
+<div id="letterPhotoContainer" style="
+width:160px;
+height:160px;
+margin:0 auto 20px;
+border-radius:50%;
+overflow:hidden;
+box-shadow:0 0 25px rgba(255,79,139,.4);
+border:5px solid white;
+">
 
-<h2 style="color:#ff4f8b;">💌 A Letter For You ❤️</h2>
+<img
+id="letterPhoto"
+src="letters/IMG_0500.jpeg"
+style="
+width:100%;
+height:100%;
+object-fit:cover;
+transition:opacity 1s;
+">
+
+</div>
+
+<div style="font-size:45px;">💌</div>
+
+<h2 style="color:#ff4f8b;margin-top:10px;">
+A Letter For You ❤️
+</h2>
 
 <p style="margin-top:20px;line-height:1.8;font-size:18px;color:#555;">
 
@@ -542,24 +568,87 @@ Close ❤️
 
 `;
 
-document.body.appendChild(popup);
-
 letter.onclick=function(){
 
 popup.style.display="flex";
 
+photoIndex=0;
+
+document.getElementById("letterPhoto").src=letterPhotos[0];
+
+voiceMessage.pause();
+voiceMessage.currentTime=0;
+
+voiceMessage.play().catch(()=>{});
+
+clearInterval(slideshow);
+
+startLetterSlideshow();
+
 };
 
-document.addEventListener("click",function(e){
+/* ❤️ Voice Message ❤️ */
 
-if(e.target.id==="closePopup"){
+const voiceMessage = new Audio("letters/New Recording.m4a");
+voiceMessage.preload = "auto";
+voiceMessage.volume = 1;
 
-popup.style.display="none";
+/* ❤️ Letter Photo Slideshow ❤️ */
+
+const letterPhotos = [
+"letters/IMG_0500.jpeg",
+"letters/IMG_0503.jpeg",
+"letters/IMG_0558.jpeg",
+"letters/IMG_0639.jpeg",
+"letters/IMG_0711.jpeg",
+"letters/IMG_0926.jpeg",
+"letters/IMG_0949.jpeg",
+"letters/IMG_0992.jpeg",
+"letters/IMG_1135.jpeg",
+"letters/IMG_1163.jpeg"
+];
+
+let photoIndex = 0;
+let slideshow;
+
+function startLetterSlideshow() {
+
+const img = document.getElementById("letterPhoto");
+
+slideshow = setInterval(() => {
+
+img.style.opacity = "0";
+
+setTimeout(() => {
+
+photoIndex = (photoIndex + 1) % letterPhotos.length;
+
+img.src = letterPhotos[photoIndex];
+
+img.style.opacity = "1";
+
+}, 800);
+
+}, 4000);
 
 }
 
-});
+popup.onclick = function(e){
 
+    if(e.target.id==="closePopup"){
+
+        popup.style.display="none";
+
+        clearInterval(slideshow);
+
+        voiceMessage.pause();
+        voiceMessage.currentTime=0;
+
+    }
+
+};
+
+document.body.appendChild(popup);
 </script>
 
 </body>
