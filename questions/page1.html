@@ -1,71 +1,249 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Questions ❤️</title>
+
+<title>Questions For You ❤️</title>
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
 font-family:Arial,Helvetica,sans-serif;
-background:#fff5f8;
-display:flex;
-justify-content:center;
-align-items:center;
+
 min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+overflow:hidden;
+
+background:linear-gradient(-45deg,#ffd6e7,#ffe6f2,#fff8fb,#ffdbe9);
+
+background-size:400% 400%;
+
+animation:bgMove 15s ease infinite;
+
+}
+
+@keyframes bgMove{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
 }
 
 .card{
-width:90%;
-max-width:650px;
-background:white;
+
+position:relative;
+
+z-index:5;
+
+width:92%;
+
+max-width:760px;
+
 padding:35px;
-border-radius:25px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+border-radius:30px;
+
+background:rgba(255,255,255,.60);
+
+backdrop-filter:blur(18px);
+
 text-align:center;
+
+box-shadow:0 15px 45px rgba(255,105,180,.28);
+
+animation:fadeUp .9s;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
 }
 
 h1{
+
+font-size:38px;
+
 color:#ff4f8b;
+
 margin-bottom:15px;
+
+animation:heartbeat 1.8s infinite;
+
 }
 
-#count{
-color:#888;
+@keyframes heartbeat{
+
+0%,100%{transform:scale(1);}
+
+50%{transform:scale(1.05);}
+
+}
+
+#message{
+
+font-size:22px;
+
+color:#666;
+
+line-height:1.7;
+
+min-height:90px;
+
 margin-bottom:25px;
-font-size:18px;
+
+}
+#progress{
+
+width:100%;
+
+height:12px;
+
+background:#ffe4ef;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-bottom:30px;
+
+}
+
+#bar{
+
+width:0%;
+
+height:100%;
+
+background:linear-gradient(90deg,#ff4f8b,#ff8bb6);
+
+transition:.5s;
+
 }
 
 #question{
-font-size:28px;
-line-height:1.5;
-min-height:120px;
-display:flex;
-justify-content:center;
-align-items:center;
+
+font-size:30px;
+
+color:#444;
+
+line-height:1.6;
+
+min-height:130px;
+
+margin-bottom:25px;
+
 }
 
-.buttons{
-margin-top:35px;
-display:flex;
-justify-content:space-between;
+textarea{
+
+width:100%;
+
+height:170px;
+
+padding:18px;
+
+border:none;
+
+outline:none;
+
+border-radius:20px;
+
+font-size:18px;
+
+resize:none;
+
+background:white;
+
+box-shadow:0 0 20px rgba(255,105,180,.18);
+
 }
 
 button{
+
+margin-top:30px;
+
+padding:18px 40px;
+
 border:none;
-padding:15px 30px;
+
 border-radius:50px;
+
 background:#ff4f8b;
+
 color:white;
-font-size:18px;
+
+font-size:20px;
+
 cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 0 25px rgba(255,79,139,.45);
+
 }
 
 button:hover{
+
+transform:scale(1.07);
+
 background:#ff2f73;
+
+}
+
+.heart{
+
+position:fixed;
+
+bottom:-40px;
+
+pointer-events:none;
+
+animation:floatHeart linear forwards;
+
+}
+
+@keyframes floatHeart{
+
+0%{transform:translateY(0);opacity:1;}
+
+100%{transform:translateY(-120vh);opacity:0;}
+
 }
 
 </style>
@@ -76,179 +254,187 @@ background:#ff2f73;
 
 <div class="card">
 
-<h1>❤️ Our Questions ❤️</h1>
+<h1>❤️ Just A Few Questions ❤️</h1>
 
-<div id="count">Question 1 of 10</div>
+<div id="message"></div>
 
-<img id="photo" src="9111BCA6-C7FC-4892-8C8D-C8D118504416.jpeg" style="width:100%;max-height:350px;object-fit:contain;border-radius:20px;margin-bottom:20px;">
+<div id="progress">
+
+<div id="bar"></div>
+
+</div>
 
 <div id="question"></div>
 
-<textarea
-id="answer"
-placeholder="Write your answer here... ❤️"
-style="width:100%;height:140px;margin-top:25px;padding:15px;font-size:16px;border-radius:15px;border:2px solid #ffb6cf;resize:none;"></textarea>
+<textarea id="answer"
 
-<div id="message" style="display:none;color:#ff4f8b;font-weight:bold;margin-top:20px;"></div>
+placeholder="Write your answer here... ❤️"></textarea>
 
-<div class="buttons">
+<button id="nextBtn">
 
-<button onclick="previousQuestion()">Previous</button>
+Next ❤️
 
-<button onclick="nextQuestion()">Next ❤️</button>
-
-</div>
+</button>
 
 </div>
 
 <script>
+const messages=[
+
+"Hey Handsome ❤️ Before we continue... I just want to know your heart a little more... 🥹",
+
+"Every answer you write will become a forever memory for us ❤️",
+
+"I promise I'll read every word with the biggest smile ❤️",
+
+"Take your time... I'm right here with you ❤️",
+
+"I already know some answers... but I still want to hear them from you ❤️",
+
+"Your words are priceless to me ❤️",
+
+"I'm secretly smiling while you're answering these ❤️",
+
+"Thank you for doing this for me... it means everything ❤️"
+
+];
 
 const questions=[
 
-{
-question:"What was your first impression of me? ❤️",
-image:"9111BCA6-C7FC-4892-8C8D-C8D118504416.jpeg"
-},
+"What was your very first impression of me? ❤️",
 
-{
-question:"What is your favorite memory of us? ❤️",
-image:"IMG_1492.jpeg"
-},
+"When did you realise you were falling for me? ❤️",
 
-{
-question:"What is one thing you love most about me? ❤️",
-image:"IMG_1493.jpeg"
-},
+"What is your favourite memory with me? ❤️",
 
-{
-question:"What song reminds you of us? ❤️",
-image:"IMG_1494.jpeg"
-},
+"What do you love the most about me? ❤️",
 
-{
-question:"What is one dream you want us to achieve together? ❤️",
-image:"IMG_1495.jpeg"
-},
+"Which moment made you happiest with me? ❤️",
 
-{
-question:"What is your favorite photo of us? ❤️",
-image:"IMG_1496.jpeg"
-},
+"What is one thing you never want to change about us? ❤️",
 
-{
-question:"What is something I do that always makes you smile? ❤️",
-image:"IMG_1497.jpeg"
-},
+"If you could relive one day with me, which day would it be? ❤️",
 
-{
-question:"What place would you love to visit with me? ❤️",
-image:"IMG_1498.jpeg"
-},
+"What do you think our future looks like? ❤️",
 
-{
-question:"What is one thing you never want to change about us? ❤️",
-image:"IMG_1499.jpeg"
-},
+"What nickname do you secretly love the most? ❤️",
 
-{
-question:"What does forever with me look like? ❤️",
-image:"IMG_1500.jpeg"
-}
+"What would you like to tell me right now? ❤️"
 
 ];
+
 let current=0;
+
+const msg=document.getElementById("message");
+
+const question=document.getElementById("question");
+
+const answer=document.getElementById("answer");
+
+const nextBtn=document.getElementById("nextBtn");
+
+const bar=document.getElementById("bar");
+
+function typeWriter(element,text,speed){
+
+element.innerHTML="";
+
+let i=0;
+
+const t=setInterval(()=>{
+
+element.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(t);
+
+}
+
+},speed);
+
+}
 
 function showQuestion(){
 
-document.getElementById("question").innerHTML=questions[current].question;
+typeWriter(msg,messages[current%messages.length],25);
 
-document.getElementById("photo").src=questions[current].image;
+setTimeout(()=>{
 
-document.getElementById("count").innerHTML="Question "+(current+1)+" of 10";
+typeWriter(question,questions[current],25);
 
-document.getElementById("answer").value=localStorage.getItem("answer"+current)||"";
+},900);
 
-document.getElementById("message").style.display="none";
+bar.style.width=((current)/questions.length)*100+"%";
 
 }
 
 showQuestion();
+nextBtn.onclick=function(){
 
-let waiting=false;
+localStorage.setItem("answer"+current,answer.value);
 
-function nextQuestion(){
-
-if(!waiting){
-
-localStorage.setItem("answer"+current,document.getElementById("answer").value);
-
-const messages=[
-
-"You always make my heart smile ❤️",
-
-"Every memory with you is priceless ❤️",
-
-"I can't wait to read all your answers ❤️",
-
-"You are my favourite person ❤️",
-
-"You make every day brighter ❤️",
-
-"Being with you feels like home ❤️",
-
-"My heart chooses you every single day ❤️",
-
-"Our story is my favourite story ❤️",
-
-"Almost at the end... but never the end of us ❤️",
-
-"Thank you for completing our love story ❤️"
-
-];
-
-document.getElementById("message").innerHTML=messages[current];
-
-document.getElementById("message").style.display="block";
-
-document.querySelector(".buttons button:last-child").innerHTML="Continue ❤️";
-
-waiting=true;
-
-}else{
-
-waiting=false;
-
-document.getElementById("message").style.display="none";
-
-document.querySelector(".buttons button:last-child").innerHTML="Next ❤️";
-
-if(current<9){
+answer.value="";
 
 current++;
 
+if(current<questions.length){
+
 showQuestion();
 
 }else{
 
-window.location.href="../memories/index.html";
+document.querySelector(".card").innerHTML=`
+
+<h1>❤️ Thank You ❤️</h1>
+
+<p style="font-size:24px;line-height:1.8;color:#555;margin-top:30px;">
+
+Every answer you've written is now part of our forever story... ❤️
+
+<br><br>
+
+Thank you for giving your heart to me.
+
+<br><br>
+
+I love you endlessly. ❤️
+
+</p>
+
+<button onclick="location.href='../memories/'">
+
+Continue Our Journey ❤️
+
+</button>
+
+`;
 
 }
 
-}
+};
 
-}
+setInterval(()=>{
 
-function previousQuestion(){
+const heart=document.createElement("div");
 
-if(current>0){
+heart.className="heart";
 
-current--;
+heart.innerHTML=Math.random()>0.5?"❤️":"💖";
 
-showQuestion();
+heart.style.left=Math.random()*100+"vw";
 
-}
+heart.style.fontSize=(18+Math.random()*20)+"px";
 
-}
+heart.style.animationDuration=(5+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),8000);
+
+},700);
 
 </script>
 
