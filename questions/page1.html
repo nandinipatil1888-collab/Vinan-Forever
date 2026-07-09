@@ -17,61 +17,79 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 
 font-family:Arial,Helvetica,sans-serif;
 
+overflow-x:hidden;
+overflow-y:auto;
 min-height:100vh;
 
 display:flex;
-
 justify-content:center;
+align-items:flex-start;
 
-align-items:center;
+padding:40px 20px;
 
-overflow:hidden;
+background:
+radial-gradient(circle at top,#ffeaf3,#ffd6e7 35%,#f8dfff 70%,#e8d8ff);
 
-background:linear-gradient(-45deg,#ffd6e7,#ffe6f2,#fff8fb,#ffdbe9);
-
-background-size:400% 400%;
-
-animation:bgMove 15s ease infinite;
+position:relative;
 
 }
 
-@keyframes bgMove{
+body::before{
 
-0%{background-position:0% 50%;}
+content:"";
 
-50%{background-position:100% 50%;}
+position:fixed;
 
-100%{background-position:0% 50%;}
+inset:0;
+
+background:
+
+radial-gradient(circle,#ffffff88 1px,transparent 2px);
+
+background-size:40px 40px;
+
+animation:stars 25s linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes stars{
+
+from{transform:translateY(0);}
+
+to{transform:translateY(40px);}
 
 }
 
 .card{
 
-position:relative;
-
-z-index:5;
-
-width:92%;
-
+width:95%;
 max-width:760px;
 
 padding:35px;
 
-border-radius:30px;
+border-radius:35px;
 
-background:rgba(255,255,255,.60);
+background:rgba(255,255,255,.55);
 
 backdrop-filter:blur(18px);
 
-text-align:center;
+box-shadow:0 20px 60px rgba(255,105,180,.25);
 
-box-shadow:0 15px 45px rgba(255,105,180,.28);
+position:relative;
 
-animation:fadeUp .9s;
+z-index:5;
+
+animation:fadeUp 1s;
 
 }
 
@@ -81,7 +99,7 @@ from{
 
 opacity:0;
 
-transform:translateY(40px);
+transform:translateY(50px);
 
 }
 
@@ -94,14 +112,17 @@ transform:translateY(0);
 }
 
 }
-
 h1{
 
-font-size:38px;
+font-size:42px;
+
+text-align:center;
 
 color:#ff4f8b;
 
-margin-bottom:15px;
+margin-bottom:25px;
+
+text-shadow:0 0 18px #ffc3da;
 
 animation:heartbeat 1.8s infinite;
 
@@ -115,32 +136,88 @@ animation:heartbeat 1.8s infinite;
 
 }
 
+#hero{
+
+position:relative;
+
+width:220px;
+
+height:220px;
+
+margin:0 auto 30px;
+
+border-radius:30px;
+
+overflow:hidden;
+
+box-shadow:0 0 35px rgba(255,105,180,.45);
+
+}
+
+#hero img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(.55);
+
+}
+
+#heroText{
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+color:white;
+
+font-size:22px;
+
+font-weight:bold;
+
+text-shadow:0 0 12px black;
+
+}
+
 #message{
 
 font-size:22px;
 
-color:#666;
+text-align:center;
 
 line-height:1.7;
 
-min-height:90px;
+color:#555;
 
-margin-bottom:25px;
+margin-bottom:30px;
 
 }
 #progress{
 
 width:100%;
 
-height:12px;
+height:14px;
 
-background:#ffe4ef;
+background:#ffe5ef;
 
-border-radius:20px;
+border-radius:50px;
 
 overflow:hidden;
 
-margin-bottom:30px;
+margin-bottom:35px;
 
 }
 
@@ -150,7 +227,7 @@ width:0%;
 
 height:100%;
 
-background:linear-gradient(90deg,#ff4f8b,#ff8bb6);
+background:linear-gradient(90deg,#ff4f8b,#ff9ec5);
 
 transition:.5s;
 
@@ -160,13 +237,15 @@ transition:.5s;
 
 font-size:30px;
 
+text-align:center;
+
 color:#444;
 
 line-height:1.6;
 
-min-height:130px;
-
 margin-bottom:25px;
+
+min-height:120px;
 
 }
 
@@ -174,15 +253,15 @@ textarea{
 
 width:100%;
 
-height:170px;
+height:180px;
 
-padding:18px;
+padding:20px;
 
 border:none;
 
-outline:none;
+border-radius:25px;
 
-border-radius:20px;
+outline:none;
 
 font-size:18px;
 
@@ -190,15 +269,19 @@ resize:none;
 
 background:white;
 
-box-shadow:0 0 20px rgba(255,105,180,.18);
+box-shadow:0 0 25px rgba(255,105,180,.18);
+
+margin-bottom:25px;
 
 }
 
 button{
 
-margin-top:30px;
+display:block;
 
-padding:18px 40px;
+margin:auto;
+
+padding:18px 45px;
 
 border:none;
 
@@ -212,37 +295,17 @@ font-size:20px;
 
 cursor:pointer;
 
-transition:.3s;
+box-shadow:0 0 30px rgba(255,105,180,.45);
 
-box-shadow:0 0 25px rgba(255,79,139,.45);
+transition:.3s;
 
 }
 
 button:hover{
 
-transform:scale(1.07);
+transform:scale(1.08);
 
 background:#ff2f73;
-
-}
-
-.heart{
-
-position:fixed;
-
-bottom:-40px;
-
-pointer-events:none;
-
-animation:floatHeart linear forwards;
-
-}
-
-@keyframes floatHeart{
-
-0%{transform:translateY(0);opacity:1;}
-
-100%{transform:translateY(-120vh);opacity:0;}
 
 }
 
@@ -255,6 +318,18 @@ animation:floatHeart linear forwards;
 <div class="card">
 
 <h1>❤️ Just A Few Questions ❤️</h1>
+
+<div id="hero">
+
+<img src="images/question-cover.jpg">
+
+<div id="heroText">
+
+Every answer from your heart<br>becomes my forever memory ❤️
+
+</div>
+
+</div>
 
 <div id="message"></div>
 
@@ -281,69 +356,65 @@ Next ❤️
 <script>
 const messages=[
 
-"Hey Handsome ❤️ Before we continue... I just want to know your heart a little more... 🥹",
+"Hey Handsome ❤️ Before we begin... I want you to know that every answer you write will stay with me forever... 🥹",
 
-"Every answer you write will become a forever memory for us ❤️",
+"Close your eyes for a second... and answer with your heart ❤️",
 
-"I promise I'll read every word with the biggest smile ❤️",
+"I'm smiling already because I know these answers are coming from you ❤️",
 
-"Take your time... I'm right here with you ❤️",
+"Your words mean more to me than you can ever imagine ❤️",
 
-"I already know some answers... but I still want to hear them from you ❤️",
+"Every little memory with you is my biggest treasure ❤️",
 
-"Your words are priceless to me ❤️",
+"If I could freeze time... I'd freeze every beautiful moment with you ❤️",
 
-"I'm secretly smiling while you're answering these ❤️",
+"You'll never know how special you make me feel ❤️",
 
-"Thank you for doing this for me... it means everything ❤️"
+"Thank you for choosing to walk through this little journey with me ❤️"
 
 ];
 
 const questions=[
 
-"What was your very first impression of me? ❤️",
+"What was your first impression of me? ❤️",
 
-"When did you realise you were falling for me? ❤️",
+"When did you realize you were falling in love with me? ❤️",
 
 "What is your favourite memory with me? ❤️",
 
-"What do you love the most about me? ❤️",
+"What do you love most about me? ❤️",
 
-"Which moment made you happiest with me? ❤️",
+"What song reminds you of us? ❤️",
+
+"What is your dream date with me? ❤️",
 
 "What is one thing you never want to change about us? ❤️",
 
-"If you could relive one day with me, which day would it be? ❤️",
+"If we could travel anywhere together, where would you take me? ❤️",
 
-"What do you think our future looks like? ❤️",
+"What nickname do you secretly love calling me? ❤️",
 
-"What nickname do you secretly love the most? ❤️",
-
-"What would you like to tell me right now? ❤️"
+"What would you like to tell me today? ❤️"
 
 ];
 
 let current=0;
 
 const msg=document.getElementById("message");
-
 const question=document.getElementById("question");
-
 const answer=document.getElementById("answer");
-
 const nextBtn=document.getElementById("nextBtn");
-
 const bar=document.getElementById("bar");
 
-function typeWriter(element,text,speed){
+function typeWriter(el,text,speed){
 
-element.innerHTML="";
+el.innerHTML="";
 
 let i=0;
 
 const t=setInterval(()=>{
 
-element.innerHTML+=text.charAt(i);
+el.innerHTML+=text.charAt(i);
 
 i++;
 
@@ -359,11 +430,11 @@ clearInterval(t);
 
 function showQuestion(){
 
-typeWriter(msg,messages[current%messages.length],25);
+typeWriter(msg,messages[current%messages.length],22);
 
 setTimeout(()=>{
 
-typeWriter(question,questions[current],25);
+typeWriter(question,questions[current],22);
 
 },900);
 
@@ -390,13 +461,21 @@ document.querySelector(".card").innerHTML=`
 
 <h1>❤️ Thank You ❤️</h1>
 
-<p style="font-size:24px;line-height:1.8;color:#555;margin-top:30px;">
+<div style="text-align:center;padding:40px;">
 
-Every answer you've written is now part of our forever story... ❤️
+<h2 style="color:#ff4f8b;font-size:34px;">
+
+Our Forever Story ❤️
+
+</h2>
+
+<p style="margin-top:25px;font-size:22px;line-height:1.9;color:#555;">
+
+Every answer you've written is now a beautiful part of our love story.
 
 <br><br>
 
-Thank you for giving your heart to me.
+One day we'll read these together and smile.
 
 <br><br>
 
@@ -406,35 +485,17 @@ I love you endlessly. ❤️
 
 <button onclick="location.href='../memories/'">
 
-Continue Our Journey ❤️
+Continue To Our Memories ❤️
 
 </button>
+
+</div>
 
 `;
 
 }
 
 };
-
-setInterval(()=>{
-
-const heart=document.createElement("div");
-
-heart.className="heart";
-
-heart.innerHTML=Math.random()>0.5?"❤️":"💖";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.fontSize=(18+Math.random()*20)+"px";
-
-heart.style.animationDuration=(5+Math.random()*3)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>heart.remove(),8000);
-
-},700);
 
 </script>
 
