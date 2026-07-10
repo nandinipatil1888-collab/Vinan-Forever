@@ -337,36 +337,7 @@ box-shadow:0 0 25px rgba(255,105,180,.55);
 transition:.3s;
 
 }
-.thankPhoto{
 
-width:85%;
-max-width:350px;
-
-border-radius:25px;
-
-margin:25px auto;
-
-display:block;
-
-box-shadow:0 0 35px rgba(255,105,180,.7);
-
-animation:fadeIn 1.5s ease;
-
-}
-
-@keyframes fadeIn{
-
-from{
-opacity:0;
-transform:scale(.8);
-}
-
-to{
-opacity:1;
-transform:scale(1);
-}
-
-}
 button:hover{
 
 transform:scale(1.08);
@@ -405,27 +376,6 @@ transform:scale(1.08);
 
 <button id="nextBtn" onclick="nextQuestion()">Next ❤️</button>
 
-<div id="thankYou" style="display:none;text-align:center;color:white;">
-
-<h1>❤️ Thank You My Love ❤️</h1>
-
-<img src="thanku.png" class="thankPhoto">
-
-<p style="font-size:22px;line-height:1.7;">
-Thank you for answering every question and sharing your heart with me ❤️
-<br><br>
-Every answer is a little piece of our beautiful story.
-<br><br>
-Now let's walk through our memories together ❤️
-</p>
-
-<button onclick="playLoveAndContinue()">
-Continue To Our Memories ❤️
-</button>
-
-</div>
-
-</div>
 
 <script>
 const photos=[
@@ -580,13 +530,11 @@ if(current < questions.length){
 
 answer.value="";
 
-showQuestion();
+playIntro();
 
 }else{
 
-document.getElementById("main").style.display="none";
-
-document.getElementById("thankYou").style.display="block";
+location.href="../memories/";
 
 }
 
