@@ -391,7 +391,7 @@ const photos=[
 "IMG_1498.jpeg",
 "IMG_1499.jpeg",
 "IMG_1500.jpeg",
-"9111BCA6-96B4-42F2-A795-0E9B49D6A18F.jpeg"
+"9111BCA6-C7FC-4892-8C8D-C8D118504416.jpeg"
 ];
 
 const questions=[
@@ -505,55 +505,20 @@ showQuestion();
 }
 
 playIntro();
-nextBtn.onclick=function(){
+function playLoveAndContinue(){
 
-localStorage.setItem("answer"+current,answer.value);
+const audio=document.getElementById("loveVoice");
 
-answer.value="";
-
-current++;
-
-if(current<questions.length){
-
-main.style.opacity="0";
+if(audio){
+audio.play().catch(()=>{});
+}
 
 setTimeout(()=>{
-
-playIntro();
-
-},500);
-
-}else{
-
-document.querySelector(".card").innerHTML=`
-
-<h1>❤️ Thank You ❤️</h1>
-
-<p style="
-text-align:center;
-font-size:24px;
-color:white;
-line-height:1.8;
-margin-top:25px;
-">
-
-Every answer you've written is now a part of our forever story... ❤️
-
-</p>
-
-<br>
-
-<button onclick="location.href='../memories/'">
-
-Continue To Our Memories ❤️
-
-</button>
-
-`;
+location.href="../memories/";
+},2200);
 
 }
 
-};
 
 /* ⭐ Background Effects */
 
