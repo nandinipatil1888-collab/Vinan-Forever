@@ -678,12 +678,9 @@ voiceMessage.pause();
 
 voiceMessage.currentTime=0;
 
-setTimeout(()=>{
-
-voiceMessage.play().catch(()=>{});
-
-},500);
-
+voiceMessage.play().catch(error=>{
+console.log("Audio blocked:",error);
+});
 startLetterSlideshow();
 
 };
