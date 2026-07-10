@@ -520,27 +520,27 @@ letter.style.zIndex = "999";
 
 document.body.appendChild(letter);
 
-const popup = document.createElement("div");
+const popup=document.createElement("div");
 
-popup.style.position = "fixed";
-popup.style.left = "0";
-popup.style.top = "0";
-popup.style.width = "100%";
-popup.style.height = "100%";
-popup.style.display = "none";
-popup.style.justifyContent = "center";
-popup.style.alignItems = "center";
-popup.style.background = "rgba(0,0,0,.75)";
-popup.style.zIndex = "1000";
+popup.style.position="fixed";
+popup.style.left="0";
+popup.style.top="0";
+popup.style.width="100%";
+popup.style.height="100%";
+popup.style.display="none";
+popup.style.justifyContent="center";
+popup.style.alignItems="center";
+popup.style.background="rgba(0,0,0,.75)";
+popup.style.zIndex="1000";
 
-popup.innerHTML = `
+popup.innerHTML=`
 
 <div style="
 position:relative;
 width:92%;
 max-width:520px;
 height:88vh;
-overflow:auto;
+overflow-y:auto;
 border-radius:30px;
 background:
 linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
@@ -553,7 +553,7 @@ text-align:center;
 text-shadow:0 2px 10px black;
 ">
 
-<h1 style="margin-bottom:20px;">💌</h1>
+<h1 style="font-size:42px;margin-bottom:20px;">💌</h1>
 
 <p style="
 font-size:22px;
@@ -576,19 +576,88 @@ These are only <b>50 reasons</b> I could write down...
 
 <br><br>
 
-but my heart has <b>millions more.</b> ❤️
+But my heart has <b>millions more.</b> ❤️
 
 <br><br>
 
 Every smile...
 
-every memory...
+Every memory...
 
-every laugh...
+Every laugh...
 
-every little moment with you...
+Every little moment with you...
 
-became another reason for
+became another reason for me to love you.
+
+<br><br>
+
+Some reasons can never be written.
+
+They're only felt.
+
+❤️
+
+<br><br>
+
+So before you continue...
+
+Read every word with a smile.
+
+Because every single one was written only for you.
+
+<br><br>
+
+<b>I love you endlessly. ❤️</b>
+
+<br><br>
+
+Forever Yours,
+
+<br><br>
+
+<b>Nandini ❤️</b>
+
+</p>
+
+<button id="continueLetter">
+
+Continue Reading ❤️
+
+</button>
+
+</div>
+
+`;
+
+document.body.appendChild(popup);
+
+letter.onclick=function(){
+
+popup.style.display="flex";
+
+voiceMessage.pause();
+voiceMessage.currentTime=0;
+
+voiceMessage.play().catch(()=>{});
+
+};
+
+popup.onclick=function(e){
+
+if(
+e.target===popup ||
+e.target.id==="continueLetter"
+){
+
+popup.style.display="none";
+
+voiceMessage.pause();
+voiceMessage.currentTime=0;
+
+}
+
+};
 </script>
 
 </body>
