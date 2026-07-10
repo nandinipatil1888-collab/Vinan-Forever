@@ -559,6 +559,14 @@ const audio=document.getElementById("loveVoice");
 if(audio){
 audio.play().catch(()=>{});
 }
+
+setTimeout(()=>{
+location.href="../memories/";
+},2200);
+
+}
+
+
 function nextQuestion(){
 
 localStorage.setItem(
@@ -572,7 +580,7 @@ if(current < questions.length){
 
 answer.value="";
 
-playIntro();
+showQuestion();
 
 }else{
 
@@ -581,11 +589,6 @@ document.getElementById("main").style.display="none";
 document.getElementById("thankYou").style.display="block";
 
 }
-
-}
-setTimeout(()=>{
-location.href="../memories/";
-},2200);
 
 }
 
