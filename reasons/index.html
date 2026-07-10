@@ -553,65 +553,100 @@ popup.style.zIndex="1000";
 popup.innerHTML=`
 
 <div style="
-background:white;
-width:90%;
-max-width:430px;
-padding:28px;
+position:relative;
+width:92%;
+max-width:500px;
+height:85vh;
 border-radius:30px;
-text-align:center;
-box-shadow:0 0 45px rgba(255,105,180,.45);
-">
-
-<div id="letterPhotoContainer"
-style="
-width:170px;
-height:170px;
-margin:0 auto 20px;
-border-radius:50%;
-overflow:hidden;
-border:6px solid white;
-box-shadow:0 0 30px pink;
+overflow:auto;
+box-shadow:0 0 40px rgba(255,105,180,.5);
 ">
 
 <img
-id="letterPhoto"
 src="letters/IMG_0500.jpeg"
 style="
+position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
-transition:opacity .8s;
+opacity:.28;
 ">
 
-</div>
+<div style="
+position:relative;
+padding:35px 28px;
+color:#ffffff;
+text-align:center;
+text-shadow:0 2px 10px rgba(0,0,0,.9);
+">
 
-<div style="font-size:42px;">💌</div>
-
-<h2 style="color:#ff4f8b;margin:15px 0;">
-A Letter For You ❤️
-</h2>
+<h1 style="
+margin-bottom:25px;
+font-size:34px;
+">
+💌
+</h1>
 
 <p style="
-line-height:1.9;
-font-size:18px;
-color:#555;
+font-size:22px;
+line-height:2;
 ">
 
-Hey Handsome... ❤️
+<b>Hey Vish ❤️</b>
 
 <br><br>
 
-Every reason on this page came straight from my heart.
+Before you read these reasons...
 
 <br><br>
 
-Even after these fifty reasons...
-
-I'd still have thousands more waiting just for you.
+I want you to know something.
 
 <br><br>
 
-Forever Yours ❤️
+These are only <b>50 reasons</b>
+I could write down...
+
+<br><br>
+
+but my heart has
+<b>millions more.</b> ❤️
+
+<br><br>
+
+Every smile...
+every memory...
+every laugh...
+every little moment with you...
+
+became another reason
+for me to love you.
+
+<br><br>
+
+Some reasons
+can never be written.
+
+They're only felt.
+
+❤️
+
+<br><br>
+
+So before you continue...
+
+Read every word with a smile.
+
+Because every single one
+was written only for you.
+
+<br><br>
+
+<b>I love you endlessly. ❤️</b>
+
+<br><br>
+
+Forever Yours,
 
 <br><br>
 
@@ -620,21 +655,23 @@ Forever Yours ❤️
 </p>
 
 <button
-id="closePopup"
+id="continueLetter"
 style="
-margin-top:20px;
-padding:16px 34px;
+margin-top:35px;
+padding:18px 40px;
 border:none;
-border-radius:40px;
+border-radius:50px;
 background:#ff4f8b;
 color:white;
-font-size:18px;
+font-size:20px;
 cursor:pointer;
 ">
 
-💖 Close ❤️
+Continue Reading ❤️
 
 </button>
+
+</div>
 
 </div>
 
@@ -687,7 +724,7 @@ startLetterSlideshow();
 
 popup.onclick=function(e){
 
-if(e.target.id==="closePopup"){
+if(e.target.id==="continueLetter"){
 
 popup.style.display="none";
 
