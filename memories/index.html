@@ -258,7 +258,19 @@ transition:.5s;
 transform:scale(1.03);
 
 }
+.memoryNumber{
 
+text-align:center;
+
+color:white;
+
+font-size:20px;
+
+margin-bottom:18px;
+
+text-shadow:0 0 10px black;
+
+}
 .caption{
 
 margin-top:18px;
@@ -276,7 +288,21 @@ text-shadow:0 0 10px black;
 min-height:70px;
 
 }
+.endingMessage{
 
+text-align:center;
+
+color:white;
+
+font-size:24px;
+
+line-height:1.8;
+
+margin:50px 20px 20px;
+
+text-shadow:0 0 12px black;
+
+}
 button{
 
 display:block;
@@ -318,6 +344,14 @@ transform:scale(1.08);
 <h1>📸 Our Beautiful Memories ❤️</h1>
 
 <div id="gallery"></div>
+
+<div class="endingMessage">
+
+These are only a few moments from our beautiful story... ❤️
+<br><br>
+And I can't wait to create thousands more memories with you. ✨❤️
+
+</div>
 
 <button onclick="location.href='../reasons/'">
 
@@ -384,11 +418,15 @@ text:"Our longest call ❤️"
 
 const gallery=document.getElementById("gallery");
 
-memories.forEach(m=>{
+memories.forEach((m,index)=>{
 
 gallery.innerHTML+=`
 
 <div class="memory">
+
+<div class="memoryNumber">
+Memory ${index+1} of 10 ❤️
+</div>
 
 <img src="${m.img}">
 
