@@ -25,20 +25,18 @@ body{
 
 font-family:Arial,Helvetica,sans-serif;
 
+background:linear-gradient(180deg,#14001f,#3d0a59,#ffbfd7);
+
 overflow-x:hidden;
 overflow-y:auto;
 
 min-height:100vh;
 
-padding:40px 20px;
-
 display:flex;
-
 justify-content:center;
-
 align-items:flex-start;
 
-background:linear-gradient(180deg,#0d0221,#29104b,#ffbdd5);
+padding:35px 18px;
 
 position:relative;
 
@@ -51,18 +49,19 @@ position:relative;
 position:fixed;
 
 width:3px;
-
 height:3px;
 
 background:white;
 
 border-radius:50%;
 
-box-shadow:0 0 12px white;
+box-shadow:0 0 15px white;
 
 animation:twinkle 2s infinite alternate;
 
 pointer-events:none;
+
+z-index:-1;
 
 }
 
@@ -71,36 +70,34 @@ pointer-events:none;
 from{
 
 opacity:.2;
-
-transform:scale(.8);
+transform:scale(.6);
 
 }
 
 to{
 
 opacity:1;
-
-transform:scale(1.5);
-
-}
+transform:scale(1.6);
 
 }
 
-/* ✨ Glitter */
+}
 
-.glitter{
+/* ❤️ Hearts */
+
+.heart{
 
 position:fixed;
 
-font-size:14px;
-
-animation:glitter 5s linear forwards;
+bottom:-40px;
 
 pointer-events:none;
 
+animation:heartFloat linear forwards;
+
 }
 
-@keyframes glitter{
+@keyframes heartFloat{
 
 0%{
 
@@ -120,42 +117,7 @@ opacity:0;
 
 }
 
-/* ❤️ Hearts */
-
-.heart{
-
-position:fixed;
-
-bottom:-40px;
-
-pointer-events:none;
-
-animation:floatHeart linear forwards;
-
-}
-
-@keyframes floatHeart{
-
-0%{
-
-transform:translateY(0);
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(-120vh);
-
-opacity:0;
-
-}
-
-}
-
-```
-/* 🌹 Rose Petals */
+/* 🌹 Petals */
 
 .petal{
 
@@ -165,11 +127,11 @@ top:-40px;
 
 pointer-events:none;
 
-animation:fallPetal linear forwards;
+animation:petalFall linear forwards;
 
 }
 
-@keyframes fallPetal{
+@keyframes petalFall{
 
 0%{
 
@@ -189,115 +151,67 @@ opacity:0;
 
 }
 
-/* 💋 Kisses */
-
-.kiss{
-
-position:fixed;
-
-bottom:-40px;
-
-pointer-events:none;
-
-animation:kissFloat 8s linear forwards;
-
-}
-
-@keyframes kissFloat{
-
-0%{
-
-transform:translateY(0) scale(.8);
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(-120vh) scale(1.6);
-
-opacity:0;
-
-}
-
-}
-
-#bg{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-filter:brightness(.45) blur(2px);
-
-transition:opacity 1.5s;
-
-z-index:-3;
-
-}
-
-#overlay{
-
-position:fixed;
-
-inset:0;
-
-background:rgba(0,0,0,.28);
-
-z-index:-2;
-
-}
-
 .card{
 
-width:95%;
-
+width:100%;
 max-width:760px;
 
-background:rgba(255,255,255,.18);
+background:rgba(255,255,255,.16);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(20px);
 
-border:1px solid rgba(255,255,255,.35);
+border:1px solid rgba(255,255,255,.28);
 
 border-radius:35px;
 
-padding:35px;
+padding:28px;
 
-box-shadow:0 25px 70px rgba(255,105,180,.30);
+box-shadow:0 20px 70px rgba(255,105,180,.35);
 
-animation:fadeUp 1s;
+overflow:hidden;
 
-}
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(40px);
+position:relative;
 
 }
 
-to{
+#intro{
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+height:72vh;
+
+}
+
+#heroPhoto{
+
+width:100%;
+height:100%;
+
+object-fit:contain;
+
+border-radius:25px;
+
+box-shadow:0 0 40px rgba(255,255,255,.35);
 
 opacity:1;
 
-transform:translateY(0);
+transition:all 2s ease;
 
 }
 
+#main{
+
+display:none;
+
+opacity:0;
+
+transition:1.3s;
+
 }
+
 h1{
 
 text-align:center;
@@ -306,7 +220,7 @@ font-size:42px;
 
 color:white;
 
-text-shadow:0 0 20px #ff9fc7;
+text-shadow:0 0 18px hotpink;
 
 margin-bottom:25px;
 
@@ -314,29 +228,30 @@ margin-bottom:25px;
 
 #message{
 
+font-size:23px;
+
 text-align:center;
 
-font-size:22px;
-
-line-height:1.7;
+line-height:1.8;
 
 color:white;
 
-margin-bottom:25px;
+text-shadow:0 0 8px black;
 
-text-shadow:0 0 10px black;
+margin-bottom:30px;
+
+min-height:90px;
 
 }
 
 #progress{
 
 width:100%;
-
 height:14px;
 
 background:rgba(255,255,255,.25);
 
-border-radius:30px;
+border-radius:50px;
 
 overflow:hidden;
 
@@ -350,17 +265,16 @@ width:0%;
 
 height:100%;
 
-background:linear-gradient(90deg,#ff4f8b,#ffd1e6);
+background:linear-gradient(90deg,#ff4f8b,#ffd8e9);
 
 transition:.5s;
 
 }
-
 #question{
 
-font-size:30px;
+font-size:32px;
 
-line-height:1.7;
+line-height:1.8;
 
 text-align:center;
 
@@ -370,7 +284,7 @@ text-shadow:0 0 10px black;
 
 margin-bottom:25px;
 
-min-height:120px;
+min-height:140px;
 
 }
 
@@ -392,7 +306,7 @@ font-size:18px;
 
 resize:none;
 
-background:rgba(255,255,255,.9);
+background:rgba(255,255,255,.92);
 
 margin-bottom:25px;
 
@@ -404,7 +318,7 @@ display:block;
 
 margin:auto;
 
-padding:18px 45px;
+padding:18px 48px;
 
 border:none;
 
@@ -414,11 +328,13 @@ background:#ff4f8b;
 
 color:white;
 
-font-size:20px;
+font-size:21px;
 
 cursor:pointer;
 
 box-shadow:0 0 25px rgba(255,105,180,.55);
+
+transition:.3s;
 
 }
 
@@ -427,60 +343,22 @@ button:hover{
 transform:scale(1.08);
 
 }
-#photoScreen{
 
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-height:70vh;
-
-overflow:hidden;
-
-}
-
-#heroPhoto{
-
-width:100%;
-
-height:100%;
-
-object-fit:contain;
-
-transition:all 2s ease;
-
-border-radius:25px;
-
-box-shadow:0 0 35px rgba(255,255,255,.35);
-
-}
-
-#questionScreen{
-
-opacity:0;
-
-}
 </style>
 
 </head>
 
 <body>
 
-<img id="bg" src="IMG_1492.jpeg">
-
-<div id="overlay"></div>
-
 <div class="card">
 
-<div id="photoScreen">
+<div id="intro">
 
 <img id="heroPhoto" src="IMG_1492.jpeg">
 
 </div>
 
-<div id="questionScreen" style="display:none;">
+<div id="main">
 
 <h1>❤️ Just A Few Questions ❤️</h1>
 
@@ -516,101 +394,128 @@ const photos=[
 "9111BCA6-96B4-42F2-A795-0E9B49D6A18F.jpeg"
 ];
 
-const messages=[
-"Hey Handsome ❤️ Every answer you write is becoming one more beautiful memory for us...",
-"I'm already smiling while imagining your answers ❤️",
-"I can't wait to read every single word you write ❤️",
-"Thank you for taking this little journey with me ❤️",
-"Your words mean more to me than you know ❤️"
-];
-
 const questions=[
 "What was your first impression of me? ❤️",
-"When did you realize you were falling in love with me? ❤️",
+"When did you realise you were falling in love with me? ❤️",
 "What is your favourite memory with me? ❤️",
 "What do you love the most about me? ❤️",
-"What is your dream with me? ❤️"
+"What is your favourite thing about us? ❤️",
+"What is one moment you'll never forget? ❤️",
+"What makes you smile whenever you think about me? ❤️",
+"What is your dream with me? ❤️",
+"What is your favourite picture of me? ❤️",
+"If you could relive one day with me, which day would it be? ❤️"
+];
+
+const messages=[
+"Hey Handsome ❤️ Every answer you write becomes another beautiful memory for us...",
+"I promise I'll read every word with the biggest smile... ❤️",
+"Your answers will stay in my heart forever... ❤️",
+"You make every moment of my life beautiful... ❤️",
+"I love hearing your heart speak... ❤️",
+"Thank you for doing this for me... ❤️",
+"I can't wait to read your next answer... ❤️",
+"You're my favourite person... ❤️",
+"Our story is my favourite story... ❤️",
+"Just one more question before our memories... ❤️"
 ];
 
 let current=0;
-let photo=0;
 
-const bg=document.getElementById("bg");
-const msg=document.getElementById("message");
-const q=document.getElementById("question");
-const ans=document.getElementById("answer");
+const hero=document.getElementById("heroPhoto");
+const intro=document.getElementById("intro");
+const main=document.getElementById("main");
+
+const message=document.getElementById("message");
+const question=document.getElementById("question");
+const answer=document.getElementById("answer");
 const bar=document.getElementById("bar");
+function typeText(element,text,speed,callback){
 
-function show(){
-
-msg.innerHTML="";
-
-q.innerHTML="";
-
-bar.style.width=((current)/questions.length)*100+"%";
-
-let m=0;
-
-const msgTyping=setInterval(()=>{
-
-msg.innerHTML+=messages[current%messages.length].charAt(m);
-
-m++;
-
-if(m>=messages[current%messages.length].length){
-
-clearInterval(msgTyping);
+element.innerHTML="";
 
 let i=0;
 
-const questionTyping=setInterval(()=>{
+const timer=setInterval(()=>{
 
-q.innerHTML+=questions[current].charAt(i);
+element.innerHTML+=text.charAt(i);
 
 i++;
 
-if(i>=questions[current].length){
+if(i>=text.length){
 
-clearInterval(questionTyping);
+clearInterval(timer);
 
-}
-
-},30);
+if(callback) callback();
 
 }
 
-},25);
+},speed);
 
 }
 
-show();
+function showQuestion(){
 
-setInterval(()=>{
+bar.style.width=((current)/questions.length)*100+"%";
 
-bg.style.opacity="0";
+typeText(message,messages[current],25,function(){
+
+typeText(question,questions[current],30);
+
+});
+
+}
+
+function playIntro(){
+
+hero.src=photos[current];
+
+intro.style.display="flex";
+
+main.style.display="none";
+
+hero.style.opacity="1";
+
+hero.style.transform="scale(1)";
 
 setTimeout(()=>{
 
-photo=(photo+1)%photos.length;
+hero.style.transform="scale(1.08)";
 
-bg.src=photos[photo];
+},100);
 
-bg.style.opacity="1";
+setTimeout(()=>{
 
-},900);
+hero.style.opacity=".18";
 
-},4000);
+intro.style.display="none";
+
+main.style.display="block";
+
+setTimeout(()=>{
+
+main.style.opacity="1";
+
+showQuestion();
+
+},100);
+
+},2500);
+
+}
+
+playIntro();
 nextBtn.onclick=function(){
 
-localStorage.setItem("answer"+current,ans.value);
+localStorage.setItem("answer"+current,answer.value);
 
-ans.value="";
+answer.value="";
 
 current++;
 
 if(current<questions.length){
 
-questionScreen.style.opacity="0";
+main.style.opacity="0";
 
 setTimeout(()=>{
 
@@ -624,9 +529,15 @@ document.querySelector(".card").innerHTML=`
 
 <h1>❤️ Thank You ❤️</h1>
 
-<p style="text-align:center;font-size:24px;color:white;line-height:1.8;">
+<p style="
+text-align:center;
+font-size:24px;
+color:white;
+line-height:1.8;
+margin-top:25px;
+">
 
-Every answer you've written is now part of our forever story... ❤️
+Every answer you've written is now a part of our forever story... ❤️
 
 </p>
 
@@ -634,7 +545,7 @@ Every answer you've written is now part of our forever story... ❤️
 
 <button onclick="location.href='../memories/'">
 
-Continue To Memories ❤️
+Continue To Our Memories ❤️
 
 </button>
 
@@ -643,6 +554,64 @@ Continue To Memories ❤️
 }
 
 };
+
+/* ⭐ Background Effects */
+
+setInterval(()=>{
+
+const star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(star);
+
+setTimeout(()=>star.remove(),2500);
+
+},200);
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=Math.random()>.5?"❤️":"💖";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(18+Math.random()*18)+"px";
+
+heart.style.animationDuration=(5+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),8000);
+
+},700);
+
+setInterval(()=>{
+
+const petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.fontSize=(18+Math.random()*10)+"px";
+
+petal.style.animationDuration=(6+Math.random()*3)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>petal.remove(),9000);
+
+},1500);
 
 </script>
 
