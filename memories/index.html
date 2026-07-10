@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Our Memories ❤️</title>
 
@@ -13,119 +15,259 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
 
-background:#fff5f8;
-display:flex;
-justify-content:center;
-align-items:center;
+font-family:Arial,Helvetica,sans-serif;
+
+overflow-x:hidden;
+
+background:linear-gradient(180deg,#120022,#3b145f,#ffbfd8);
+
 min-height:100vh;
-padding:20px;
+
+padding:40px 20px;
+
+position:relative;
+
+}
+
+/* ⭐ Stars */
+
+.star{
+
+position:fixed;
+
+width:3px;
+
+height:3px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:0 0 12px white;
+
+animation:twinkle 2s infinite alternate;
+
+pointer-events:none;
+
+}
+
+@keyframes twinkle{
+
+from{
+
+opacity:.3;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1.6);
+
+}
+
+}
+
+/* ❤️ Hearts */
+
+.heart{
+
+position:fixed;
+
+bottom:-40px;
+
+pointer-events:none;
+
+animation:floatHeart linear forwards;
+
+}
+
+@keyframes floatHeart{
+
+0%{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh);
+
+opacity:0;
+
+}
+
+}
+
+```
+/* 🌹 Rose Petals */
+
+.petal{
+
+position:fixed;
+
+top:-40px;
+
+pointer-events:none;
+
+animation:fallPetal linear forwards;
+
+}
+
+@keyframes fallPetal{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(120vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+/* ✨ Glitter */
+
+.glitter{
+
+position:fixed;
+
+font-size:14px;
+
+pointer-events:none;
+
+animation:glitter 6s linear forwards;
+
+}
+
+@keyframes glitter{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+
+opacity:0;
+
+}
 
 }
 
 .container{
 
-width:100%;
-max-width:700px;
+max-width:850px;
+
+margin:auto;
+
+position:relative;
+
+z-index:5;
 
 }
 
-.card{
-
-background:white;
-border-radius:25px;
-padding:25px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.15);
-
-animation:fade .7s;
-
-}
-
-.photo{
-
-display:block;
-
-width:auto;
-
-max-width:100%;
-
-height:auto;
-
-max-height:60vh;
-
-margin:20px auto;
-
-object-fit:contain;
-
-border-radius:20px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-
-}
-.title{
-
-font-size:34px;
-
-color:#ff4f8b;
+h1{
 
 text-align:center;
 
-margin-bottom:15px;
+color:white;
 
-font-weight:bold;
+font-size:46px;
+
+text-shadow:0 0 18px #ff9ec8;
+
+margin-bottom:40px;
+
+}
+
+.memory{
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(18px);
+
+border-radius:30px;
+
+padding:25px;
+
+margin-bottom:45px;
+
+box-shadow:0 20px 55px rgba(255,105,180,.28);
+
+}
+.memory img{
+
+width:100%;
+
+border-radius:22px;
+
+display:block;
+
+box-shadow:0 12px 35px rgba(0,0,0,.25);
+
+transition:.5s;
+
+}
+
+.memory img:hover{
+
+transform:scale(1.03);
 
 }
 
 .caption{
 
-width:100%;
+margin-top:18px;
+
+font-size:24px;
+
+line-height:1.8;
 
 text-align:center;
 
-font-size:20px;
+color:white;
 
-font-weight:500;
+text-shadow:0 0 10px black;
 
-line-height:1.7;
-
-color:#555;
-
-margin:20px auto;
-
-padding:0 15px;
-
-}
-
-.counter{
-
-text-align:center;
-
-font-size:18px;
-
-color:#999;
-
-margin-bottom:20px;
-
-}
-
-.buttons{
-
-display:flex;
-
-justify-content:space-between;
-
-margin-top:15px;
+min-height:70px;
 
 }
 
 button{
 
-padding:15px 30px;
+display:block;
+
+margin:50px auto 20px;
+
+padding:18px 45px;
 
 border:none;
 
@@ -135,67 +277,17 @@ background:#ff4f8b;
 
 color:white;
 
-font-size:18px;
+font-size:20px;
 
 cursor:pointer;
 
-transition:.3s;
+box-shadow:0 0 25px rgba(255,105,180,.55);
 
 }
 
 button:hover{
 
-background:#ff2f73;
-
-transform:scale(1.05);
-
-}
-
-.finish{
-
-display:none;
-
-text-align:center;
-
-margin-top:25px;
-
-}
-
-.finish a{
-
-display:inline-block;
-
-padding:18px 35px;
-
-background:#ff4f8b;
-
-color:white;
-
-text-decoration:none;
-
-border-radius:50px;
-
-font-size:22px;
-
-}
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-
-transform:translateY(20px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
+transform:scale(1.08);
 
 }
 
@@ -207,146 +299,90 @@ transform:translateY(0);
 
 <div class="container">
 
-<div class="card">
+<h1>📸 Our Beautiful Memories ❤️</h1>
 
-<div class="counter" id="counter"></div>
+<div id="gallery"></div>
 
-<img id="photo" class="photo">
+<button onclick="location.href='../reasons/'">
 
-<div class="title">📸 Our Beautiful Memories ❤️</div>
+Continue Our Journey ❤️
 
-<div class="caption" id="caption"></div>
-
-<div class="buttons">
-
-<button onclick="previousMemory()">⬅ Previous</button>
-
-<button onclick="nextMemory()">Next ❤️</button>
-
-</div>
-
-<div class="finish" id="finish">
-
-<a href="../reasons/index.html">
-
-Continue Our Story ❤️
-
-</a>
-
-</div>
-
-</div>
+</button>
 
 </div>
 
 <script>
-
 const memories=[
 
 {
-photo:"memory1.jpeg",
-caption:"📱 Our First Video Call ❤️<br>Even through a screen, you made my heart smile."
+img:"IMG_1492.jpeg",
+text:"Our first video call ❤️"
 },
 
 {
-photo:"memory2.jpeg",
-caption:"☕ Our Favourite Date ❤️<br>A day I'll always cherish because I was with you."
+img:"IMG_1493.jpeg",
+text:"Our favourite date ❤️"
 },
 
 {
-photo:"memory3.jpeg",
-caption:"💬 The Day We Started Talking ❤️<br>Little did I know that one conversation would change my life forever."
+img:"IMG_1494.jpeg",
+text:"The day we started talking ❤️"
 },
 
 {
-photo:"memory4.jpeg",
-caption:"😂 We Couldn't Stop Laughing ❤️<br>My favourite sound will always be your laughter."
+img:"IMG_1495.jpeg",
+text:"We couldn't stop laughing ❤️"
 },
 
 {
-photo:"memory5.jpeg",
-caption:"🌸 One of My Favourite Days ❤️<br>A beautiful memory I'll carry in my heart forever."
+img:"IMG_1496.jpeg",
+text:"One of my favourite days ❤️"
 },
 
 {
-photo:"memory6.jpeg",
-caption:"📸 Our First Picture ❤️<br>The beginning of countless beautiful memories together."
+img:"IMG_1497.jpeg",
+text:"Our first picture ❤️"
 },
 
 {
-photo:"memory7.jpeg",
-caption:"💖 Just Another Beautiful Day With You ❤️<br>Every ordinary moment becomes extraordinary when I'm with you."
+img:"IMG_1498.jpeg",
+text:"Just another beautiful day with you ❤️"
 },
 
 {
-photo:"memory8.jpeg",
-caption:"✨ A Memory I'll Never Forget ❤️<br>Some moments stay with us forever... this is one of them."
+img:"IMG_1499.jpeg",
+text:"A memory I'll never forget ❤️"
 },
 
 {
-photo:"memory9.jpeg",
-caption:"😍 My Favourite Picture of You ❤️<br>This smile is one of my favourite things in the world."
+img:"IMG_1500.jpeg",
+text:"My favourite picture of you ❤️"
 },
 
 {
-photo:"memory10.jpeg",
-caption:"🌙 Our Longest Call ❤️<br>Hours felt like minutes because talking to you never gets old."
+img:"9111BCA6-96B4-42F2-A795-0E9B49D6A18F.jpeg",
+text:"Our longest call ❤️"
 }
 
 ];
-let current=0;
 
-function showMemory(){
+const gallery=document.getElementById("gallery");
 
-document.getElementById("photo").src=memories[current].photo;
+memories.forEach(m=>{
 
-document.getElementById("caption").innerHTML=memories[current].caption;
+gallery.innerHTML+=`
 
-document.getElementById("counter").innerHTML="Memory "+(current+1)+" of "+memories.length;
+<div class="memory">
 
-if(current===memories.length-1){
+<img src="${m.img}">
 
-document.querySelector(".buttons").style.display="none";
+<div class="caption">${m.text}</div>
 
-document.getElementById("finish").style.display="block";
+</div>
 
-}
+`;
 
-else{
-
-document.querySelector(".buttons").style.display="flex";
-
-document.getElementById("finish").style.display="none";
-
-}
-
-}
-
-function nextMemory(){
-
-if(current<memories.length-1){
-
-current++;
-
-showMemory();
-
-}
-
-}
-
-function previousMemory(){
-
-if(current>0){
-
-current--;
-
-showMemory();
-
-}
-
-}
-
-showMemory();
+});
 
 </script>
 
