@@ -501,11 +501,54 @@ alert("🎵 Our forever song will play here soon ❤️");
 
 createSparkles();
 
-/* ❤️ LOVE LETTER ❤️ */
+/* ❤️ LOVE LETTER DATA ❤️ */
 
 const voiceMessage = new Audio("letters/New Recording.m4a");
 voiceMessage.preload = "auto";
 voiceMessage.volume = 1;
+
+const letterPhotos = [
+
+"letters/IMG_0500.jpeg",
+"letters/IMG_0503.jpeg",
+"letters/IMG_0558.jpeg",
+"letters/IMG_0639.jpeg",
+"letters/IMG_0711.jpeg",
+"letters/IMG_0926.jpeg",
+"letters/IMG_0949.jpeg",
+"letters/IMG_0992.jpeg",
+"letters/IMG_1135.jpeg",
+"letters/IMG_1163.jpeg"
+
+];
+
+const loveLetters = [
+
+`<b>Hey Vish ❤️</b><br><br>Before you read these reasons... I just want you to know that every word on this page came straight from my heart. ❤️`,
+
+`<b>My Love ❤️</b><br><br>Meeting you was one of the most beautiful things that ever happened to me.`,
+
+`<b>Vish ❤️</b><br><br>Every smile... Every laugh... Every memory... became another reason for me to love you.`,
+
+`<b>My Handsome ❤️</b><br><br>No matter what happened, my heart always chose you.`,
+
+`<b>Forever ❤️</b><br><br>Distance, time and problems could never stop me from loving you.`,
+
+`<b>You ❤️</b><br><br>Some reasons can never be written. They're only felt.`,
+
+`<b>Thank You ❤️</b><br><br>Thank you for every smile, every call and every memory.`,
+
+`<b>Promise ❤️</b><br><br>A part of my heart will always belong to you.`,
+
+`<b>Millions ❤️</b><br><br>These are only a few words... my heart still has millions more.`,
+
+`<b>I Love You ❤️</b><br><br>Now go read all 50 reasons. Every single one was written only for you.<br><br><b>Forever Yours,<br>Nandini ❤️</b>`
+
+];
+
+let currentLetter = 0;
+
+
 
 const letter = document.createElement("div");
 
@@ -519,8 +562,7 @@ letter.style.cursor = "pointer";
 letter.style.zIndex = "999";
 
 document.body.appendChild(letter);
-
-const popup=document.createElement("div");
+const popup = document.createElement("div");
 
 popup.style.position="fixed";
 popup.style.left="0";
@@ -533,96 +575,56 @@ popup.style.alignItems="center";
 popup.style.background="rgba(0,0,0,.75)";
 popup.style.zIndex="1000";
 
+document.body.appendChild(popup);
+
+function showLetter(){
+
 popup.innerHTML=`
 
 <div style="
-position:relative;
 width:92%;
 max-width:520px;
 height:88vh;
-overflow-y:auto;
+overflow:auto;
 border-radius:30px;
+padding:35px;
 background:
 linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-url('letters/IMG_0500.jpeg');
+url('${letterPhotos[currentLetter]}');
+
 background-size:cover;
 background-position:center;
-padding:35px;
+
 color:white;
 text-align:center;
 text-shadow:0 2px 10px black;
 ">
 
-<h1 style="font-size:42px;margin-bottom:20px;">💌</h1>
+<h1 style="margin-bottom:20px;">💌</h1>
 
-<p style="
+<div style="
 font-size:22px;
 line-height:2;
 ">
 
-<b>Hey Vish ❤️</b>
+${loveLetters[currentLetter]}
 
-<br><br>
+</div>
 
-Before you read these reasons...
+<button
+id="nextLetter"
+style="
+margin-top:35px;
+padding:18px 40px;
+border:none;
+border-radius:50px;
+background:#ff4f8b;
+color:white;
+font-size:20px;
+cursor:pointer;
+">
 
-<br><br>
-
-I want you to know something.
-
-<br><br>
-
-These are only <b>50 reasons</b> I could write down...
-
-<br><br>
-
-But my heart has <b>millions more.</b> ❤️
-
-<br><br>
-
-Every smile...
-
-Every memory...
-
-Every laugh...
-
-Every little moment with you...
-
-became another reason for me to love you.
-
-<br><br>
-
-Some reasons can never be written.
-
-They're only felt.
-
-❤️
-
-<br><br>
-
-So before you continue...
-
-Read every word with a smile.
-
-Because every single one was written only for you.
-
-<br><br>
-
-<b>I love you endlessly. ❤️</b>
-
-<br><br>
-
-Forever Yours,
-
-<br><br>
-
-<b>Nandini ❤️</b>
-
-</p>
-
-<button id="continueLetter">
-
-Continue Reading ❤️
+${currentLetter==9 ? "Start Reading My 50 Reasons ❤️" : "Continue ❤️"}
 
 </button>
 
@@ -630,9 +632,12 @@ Continue Reading ❤️
 
 `;
 
-document.body.appendChild(popup);
-
+}
 letter.onclick=function(){
+
+currentLetter=0;
+
+showLetter();
 
 popup.style.display="flex";
 
@@ -641,14 +646,32 @@ voiceMessage.currentTime=0;
 
 voiceMessage.play().catch(()=>{});
 
+document.getElementById("nextLetter").onclick=function(){
+
+currentLetter++;
+
+if(currentLetter<letterPhotos.length){
+
+showLetter();
+
+document.getElementById("nextLetter").onclick=arguments.callee;
+
+}else{
+
+popup.style.display="none";
+
+voiceMessage.pause();
+voiceMessage.currentTime=0;
+
+}
+
+};
+
 };
 
 popup.onclick=function(e){
 
-if(
-e.target===popup ||
-e.target.id==="continueLetter"
-){
+if(e.target===popup){
 
 popup.style.display="none";
 
