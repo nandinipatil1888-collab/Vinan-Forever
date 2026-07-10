@@ -707,9 +707,9 @@ letter.onclick=function(){
 
 popup.style.display="flex";
 
-photoIndex=0;
 
-document.getElementById("letterPhoto").src=letterPhotos[0];
+
+
 
 voiceMessage.pause();
 
@@ -718,7 +718,7 @@ voiceMessage.currentTime=0;
 voiceMessage.play().catch(error=>{
 console.log("Audio blocked:",error);
 });
-startLetterSlideshow();
+
 
 };
 
