@@ -308,7 +308,57 @@ opacity:0;
 }
 
 }
+.voice-card{
 
+background:rgba(255,255,255,.75);
+
+padding:20px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.voice-card h3{
+
+color:#7a1f63;
+
+margin-bottom:15px;
+
+font-size:22px;
+
+}
+
+.voice-card p{
+
+font-size:16px;
+
+color:#4b3b3b;
+
+}
+
+.voice-btn{
+
+margin-top:15px;
+
+padding:14px 25px;
+
+border:none;
+
+border-radius:40px;
+
+background:#b33d8d;
+
+color:white;
+
+font-size:17px;
+
+cursor:pointer;
+
+}
 </style>
 
 </head>
@@ -344,9 +394,23 @@ Begin Our Story ❤️
 <div class="content">
 
 <h2 id="title"></h2>
-<button class="next" onclick="document.getElementById('music').play()">
-🎙️ Play My Voice
+
+<div class="voice-card">
+
+<h3>💌 A Message From My Heart</h3>
+
+<p>
+Before you read my reasons...
+
+I wanted you to hear my voice ❤️
+</p>
+
+<button class="voice-btn" onclick="document.getElementById('music').play()">
+🎙️ Listen To Me
 </button>
+
+</div>
+
 <p id="text"></p>
 
 <button class="next" onclick="nextPage()">
