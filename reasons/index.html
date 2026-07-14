@@ -454,9 +454,21 @@ function openBook(){
 
 cover.style.transform="rotateY(-170deg)";
 
-music.volume=.4;
+music.volume=0.4;
 
-music.play().catch(()=>{});
+music.currentTime=0;
+
+const playPromise=music.play();
+
+if(playPromise!==undefined){
+
+playPromise.catch(function(error){
+
+console.log(error);
+
+});
+
+}
 
 setTimeout(()=>{
 
