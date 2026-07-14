@@ -1,171 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vinan Forever ❤️</title>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Our Love Book ❤️</title>
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    min-height:100vh;
-    background:
-    radial-gradient(circle at top,#4b2a68,#12091d);
-    overflow:hidden;
-    font-family:"Georgia",serif;
-    color:white;
-}
 
+font-family:Georgia,serif;
 
-/* Sparkles */
+min-height:100vh;
 
-.sparkle{
-    position:absolute;
-    width:4px;
-    height:4px;
-    background:#ffd98a;
-    border-radius:50%;
-    animation: sparkle 3s infinite;
-}
+display:flex;
 
-@keyframes sparkle{
-    0%{
-        opacity:0;
-        transform:scale(0);
-    }
+justify-content:center;
 
-    50%{
-        opacity:1;
-        transform:scale(1.5);
-    }
-
-    100%{
-        opacity:0;
-        transform:scale(0);
-    }
-}
-
-
-/* Main container */
-
-.container{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-}
-
-
-/* Book */
-
-.book{
-    width:300px;
-    height:420px;
-    background:
-    linear-gradient(135deg,#5a2d68,#24112f);
-    border-radius:12px;
-    box-shadow:
-    0 0 30px rgba(255,215,120,.5),
-    inset 0 0 20px rgba(255,255,255,.15);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    border:3px solid #d9ad55;
-
-    animation: float 3s infinite ease-in-out;
-}
-
-
-@keyframes float{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-15px);
-    }
-
-}
-
-
-.book h1{
-    font-size:32px;
-    text-align:center;
-    color:#ffe6a6;
-}
-
-
-.book p{
-    margin-top:20px;
-    font-size:18px;
-    text-align:center;
-}
-
-
-.open{
-    margin-top:35px;
-    padding:12px 30px;
-    border-radius:30px;
-    border:none;
-
-    background:#d9ad55;
-    color:#2b102f;
-
-    font-size:18px;
-    cursor:pointer;
-}
-
-
-/* Hidden book pages */
-
-#loveBook{
-    display:none;
-}
-
-.page{
-
-width:300px;
-height:420px;
+align-items:center;
 
 background:
-linear-gradient(#fff8e7,#ead6b8);
+linear-gradient(135deg,#2a0d40,#4d1979,#f2d27c);
 
-color:#4b2a35;
+overflow:hidden;
 
-border-radius:12px;
+}
 
-padding:40px 25px;
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(circle at 20% 20%,rgba(255,255,255,.12),transparent 30%),
+
+radial-gradient(circle at 80% 30%,rgba(255,215,0,.18),transparent 35%),
+
+radial-gradient(circle at 60% 80%,rgba(255,255,255,.08),transparent 30%);
+
+animation:bgMove 12s linear infinite;
+
+}
+
+@keyframes bgMove{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
+
+}
+
+.book{
+
+position:relative;
+
+width:340px;
+
+height:560px;
+
+perspective:2000px;
+
+z-index:2;
+
+}
+
+.cover{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(145deg,#6d1b7b,#3e0f52);
+
+border-radius:16px;
+
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.45),
+
+inset 0 0 0 3px rgba(255,215,120,.25);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+padding:30px;
+
+transform-origin:left;
+
+transition:1.3s;
+
+}
+
+.cover h1{
+
+color:#ffd875;
+
+font-size:38px;
 
 text-align:center;
 
-box-shadow:
-0 0 30px rgba(255,215,120,.5);
+margin-bottom:20px;
 
 }
 
+.cover p{
 
-.page h2{
+color:white;
 
-color:#6b365f;
-
-margin-bottom:30px;
-
-}
-
-
-.page p{
+text-align:center;
 
 font-size:20px;
 
@@ -173,197 +135,371 @@ line-height:1.6;
 
 }
 
-
-.next{
+.cover button{
 
 margin-top:40px;
 
-padding:12px 25px;
+padding:16px 34px;
+
+font-size:18px;
 
 border:none;
 
-border-radius:30px;
+border-radius:40px;
 
-background:#6b365f;
+background:#ffd875;
+
+color:#4a174c;
+
+cursor:pointer;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.cover button:hover{
+
+transform:scale(1.05);
+
+}
+
+.page{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:#fffaf1;
+
+border-radius:16px;
+
+display:none;
+
+overflow:hidden;
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.photo{
+
+position:absolute;
+
+inset:0;
+
+background-size:cover;
+
+background-position:center;
+
+opacity:.18;
+
+filter:blur(1px);
+
+}
+
+.content{
+
+position:relative;
+
+z-index:2;
+
+padding:35px;
+
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+.content h2{
+
+color:#7a1f63;
+
+font-size:30px;
+
+text-align:center;
+
+margin-bottom:25px;
+
+}
+
+.content p{
+
+color:#4b3b3b;
+
+font-size:21px;
+
+line-height:1.8;
+
+text-align:center;
+
+white-space:pre-line;
+
+}
+
+.next{
+
+margin-top:35px;
+
+padding:15px;
+
+border:none;
+
+border-radius:40px;
+
+background:#b33d8d;
 
 color:white;
 
-font-size:16px;
+font-size:18px;
+
+cursor:pointer;
 
 }
+
+.sparkle{
+
+position:fixed;
+
+width:4px;
+
+height:4px;
+
+background:#ffd875;
+
+border-radius:50%;
+
+animation:float 6s linear infinite;
+
+}
+
+@keyframes float{
+
+from{
+
+transform:translateY(100vh);
+
+opacity:0;
+
+}
+
+30%{
+
+opacity:1;
+
+}
+
+to{
+
+transform:translateY(-100px);
+
+opacity:0;
+
+}
+
+}
+
 </style>
 
 </head>
 
-
 <body>
-
-
-<div class="container">
-
 
 <div class="book">
 
-<h1>
-❤️ Our Love Book ❤️
-</h1>
+<div class="cover" id="cover">
+
+<h1>❤️ OUR LOVE BOOK ❤️</h1>
 
 <p>
-A story written by two hearts...
+
+Every page holds a memory...
+
+Every word holds my heart...
+
 </p>
 
+<button onclick="openBook()">
 
-<button class="open" onclick="openBook()">
-Open Our Book 💌
+Open Our Forever ❤️
+
 </button>
-
 
 </div>
 
+<div class="page" id="page">
 
-<div id="loveBook">
+<div class="photo" id="photo"></div>
 
-<div class="page">
+<div class="content">
 
-<h2 id="pageTitle">
-Our First Chapter ❤️
-</h2>
+<h2 id="title"></h2>
 
-<p id="pageText">
-Every beautiful story begins with one special person...
-</p>
+<p id="text"></p>
 
 <button class="next" onclick="nextPage()">
+
 Turn Page 📖
+
 </button>
 
 </div>
 
 </div>
 
-
 </div>
-
-
 
 <audio id="music" loop>
 
 <source src="letter/New Recording.m4a">
 
 </audio>
-
-
-
 <script>
 
+const photos=[
 
-let currentPage=0;
+"letter/IMG_0500.jpeg",
 
+"letter/IMG_0503.jpeg",
+
+"letter/IMG_0558.jpeg",
+
+"letter/IMG_0639.jpeg",
+
+"letter/IMG_0711.jpeg",
+
+"letter/IMG_0926.jpeg",
+
+"letter/IMG_0949.jpeg",
+
+"letter/IMG_0992.jpeg",
+
+"letter/IMG_1135.jpeg",
+
+"letter/IMG_1163.jpeg"
+
+];
 
 const pages=[
 
 {
-title:"Our First Chapter ❤️",
-text:"Every beautiful story begins with one special person..."
+
+title:"💌 Letter One",
+
+text:`My Love,
+
+Before anything else...
+
+Thank you for walking into my life.
+
+You changed my ordinary days into beautiful memories.
+
+You became my safest place, my happiness and my home.
+
+I will choose you today, tomorrow and forever. ❤️`
+
 },
 
 {
-title:"The Beginning 💌",
-text:"Some people enter our life and quietly become our favourite part."
-},
 
-{
-title:"Our Memories 📸",
-text:"Every laugh, every conversation, every moment became priceless."
-},
+title:"💖 Letter Two",
 
-{
-title:"Forever With You ❤️",
-text:"This book is only a small piece of how much you mean to me."
+text:`Every smile of yours makes my heart smile.
+
+Every hug feels like peace.
+
+Every second with you becomes my favourite memory.
+
+Thank you for loving me exactly the way I am. ❤️`
+
 }
 
 ];
 
+let current=0;
 
-function openBook(){
+const cover=document.getElementById("cover");
 
-document.querySelector(".book").style.display="none";
+const page=document.getElementById("page");
 
-document.getElementById("loveBook").style.display="block";
+const photo=document.getElementById("photo");
 
+const title=document.getElementById("title");
 
-let music=document.getElementById("music");
+const text=document.getElementById("text");
 
-music.volume=0.4;
-
-music.play();
-
-
-showPage();
-
-}
-
-
+const music=document.getElementById("music");
 
 function showPage(){
 
-document.getElementById("pageTitle").innerHTML=
-pages[currentPage].title;
+photo.style.backgroundImage=`url(${photos[current%photos.length]})`;
 
+title.textContent=pages[current].title;
 
-document.getElementById("pageText").innerHTML=
-pages[currentPage].text;
-
+text.textContent=pages[current].text;
 
 }
 
+function openBook(){
 
+cover.style.transform="rotateY(-170deg)";
+
+music.volume=.4;
+
+music.play().catch(()=>{});
+
+setTimeout(()=>{
+
+cover.style.display="none";
+
+page.style.display="block";
+
+showPage();
+
+},900);
+
+}
 
 function nextPage(){
 
-currentPage++;
+current++;
 
+if(current>=pages.length){
 
-if(currentPage>=pages.length){
-
-currentPage=0;
+current=0;
 
 }
-
 
 showPage();
 
 }
 
+for(let i=0;i<45;i++){
 
-
-function createSparkles(){
-
-for(let i=0;i<80;i++){
-
-let s=document.createElement("div");
+const s=document.createElement("div");
 
 s.className="sparkle";
 
 s.style.left=Math.random()*100+"vw";
 
-s.style.top=Math.random()*100+"vh";
+s.style.animationDelay=Math.random()*6+"s";
 
-s.style.animationDelay=Math.random()*3+"s";
-
+s.style.animationDuration=(4+Math.random()*5)+"s";
 
 document.body.appendChild(s);
 
 }
 
-}
-
-
-createSparkles();
-
-
 </script>
 
-
 </body>
+
 </html>
