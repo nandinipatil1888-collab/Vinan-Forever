@@ -344,7 +344,9 @@ Open Our Forever ❤️
 <div class="content">
 
 <h2 id="title"></h2>
-
+<button class="next" onclick="document.getElementById('music').play()">
+🎙️ Play My Voice
+</button>
 <p id="text"></p>
 
 <button class="next" onclick="nextPage()">
@@ -359,10 +361,9 @@ Turn Page 📖
 
 </div>
 
-<audio id="music" loop>
-
-<source src="letter/New Recording.m4a">
-
+<audio id="music" controls style="display:none;">
+<source src="letter/New Recording.m4a" type="audio/mp4">
+Your browser does not support audio.
 </audio>
 <script>
 
