@@ -39,7 +39,9 @@ opacity:.28;
 
 filter:blur(2px);
 
-transform:scale(1.08);
+transform:scale(1);
+
+animation:kenburns 12s linear infinite;
 
 transition:opacity .8s ease;
 
@@ -322,6 +324,22 @@ transform:translateY(0);
 
 }
 
+@keyframes kenburns{
+
+0%{
+
+transform:scale(1);
+
+}
+
+100%{
+
+transform:scale(1.12);
+
+}
+
+}
+
 </style>
 </head>
 
@@ -553,6 +571,8 @@ title.textContent="Reason "+(current+1)+" ❤️";
 text.textContent=reasons[current];
 
 photo.style.opacity=1;
+
+photo.style.transform="scale(1.12)";
 
 },500);
 
