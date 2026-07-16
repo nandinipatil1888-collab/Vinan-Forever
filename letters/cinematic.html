@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Our Forever ❤️</title>
 
 <style>
@@ -18,626 +19,137 @@ html,body{
 width:100%;
 height:100%;
 overflow:hidden;
-background:black;
+background:#000;
 }
 
-#photo{
+body{
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+}
 
+#bg{
 position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-opacity:.28;
-
-filter:blur(2px);
-
+inset:0;
+background-image:url("IMG_0331.jpeg");
+background-size:cover;
+background-position:center;
 transform:scale(1);
-
-animation:kenburns 12s linear infinite;
-
-transition:opacity .8s ease;
-
+animation:kenburns 18s linear infinite;
 z-index:-3;
-
 }
 
-.overlay{
-
+#overlay{
 position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
+inset:0;
 background:linear-gradient(
-
 to top,
-
-rgba(0,0,0,.88) 0%,
-
-rgba(0,0,0,.55) 35%,
-
-rgba(0,0,0,.18) 65%,
-
-rgba(0,0,0,.05) 100%
-
+rgba(0,0,0,.88),
+rgba(0,0,0,.45),
+rgba(0,0,0,.15)
 );
-
 z-index:-2;
-
 }
 
 #welcome{
-
-position:fixed;
-inset:0;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:30px;
-
-color:white;
-
-z-index:10;
-
-}
-
-#welcome h1{
-
-font-size:44px;
-
-margin-bottom:25px;
-
-text-shadow:0 5px 15px black;
-
-}
-
-#welcome p{
-
-font-size:24px;
-
-line-height:1.8;
-
-max-width:700px;
-
-margin-bottom:35px;
-
-text-shadow:0 3px 10px black;
-
-}
-
-.mainBtn{
-
-padding:18px 42px;
-
-border:none;
-
-border-radius:50px;
-
-font-size:20px;
-
-font-weight:bold;
-
-margin:12px;
-
-cursor:pointer;
-
-background:linear-gradient(135deg,#ff4fa3,#b5179e);
-
-color:white;
-
-}
-
-#story{
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-z-index:5;
-
-justify-content:flex-end;
-
-align-items:center;
-
-padding:40px;
-
-}
-
-.reason{
-
-position:relative;
-
-z-index:5;
-
 width:100%;
-
-height:100vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:flex-end;
-
-align-items:center;
-
+padding:35px;
 text-align:center;
-
-
-
-padding:60px 35px 90px;
-
-animation:fadeIn 1s ease;
-
-}
-
-.reason h2{
-
-font-size:58px;
-
-color:#fff;
-
-margin-bottom:25px;
-
-text-shadow:0 6px 20px rgba(0,0,0,.75);
-
-animation:slideUp .9s ease;
-
-}
-
-.reason p{
-
-font-size:32px;
-
-line-height:1.7;
-
-max-width:850px;
-
-color:#fff;
-
-text-shadow:0 4px 15px rgba(0,0,0,.8);
-
-animation:fadeIn 1.2s ease;
-
-margin-bottom:50px;
-
-}
-
-#next{
-
-padding:18px 65px;
-
-border:none;
-
-border-radius:60px;
-
-font-size:28px;
-
-font-weight:bold;
-
 color:white;
+}
 
+h1{
+font-size:44px;
+margin-bottom:25px;
+text-shadow:0 4px 15px black;
+}
+
+p{
+font-size:24px;
+line-height:1.8;
+max-width:700px;
+margin:auto;
+margin-bottom:40px;
+text-shadow:0 3px 12px black;
+}
+
+button{
+padding:18px 38px;
+margin:12px;
+border:none;
+border-radius:50px;
+font-size:20px;
+font-weight:bold;
 cursor:pointer;
-
-background:rgba(255,255,255,.18);
-
-backdrop-filter:blur(18px);
-
--webkit-backdrop-filter:blur(18px);
-
-border:2px solid rgba(255,255,255,.35);
-
-box-shadow:0 15px 40px rgba(0,0,0,.35);
-
-transition:.35s;
-
-animation:float 2.5s ease-in-out infinite;
-
-}
-
-#next:hover{
-
-transform:scale(1.08);
-
-background:rgba(255,255,255,.28);
-
-}
-
-@keyframes fadeIn{
-
-from{
-
-opacity:0;
-
-}
-
-to{
-
-opacity:1;
-
-}
-
-}
-
-@keyframes slideUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-@keyframes float{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-10px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
-
+color:white;
+background:linear-gradient(135deg,#ff4fa3,#b5179e);
 }
 
 @keyframes kenburns{
 
 0%{
-
 transform:scale(1);
-
 }
 
 100%{
-
 transform:scale(1.12);
-
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<img id="photo" src="IMG_0331.jpeg" alt="Background photo">
+<div id="bg"></div>
 
-<div class="overlay"></div>
+<div id="overlay"></div>
 
 <div id="welcome">
 
 <h1>❤️ Our Forever ❤️</h1>
 
 <p>
-
-Before you read every reason...
-
+Before you read every chapter...
 I want you to hear my voice.
-
 Every word comes from my heart.
-
 </p>
 
-<button class="mainBtn" onclick="playVoice()">
-
+<button onclick="playVoice()">
 🎙️ Play My Voice
-
 </button>
 
-<button class="mainBtn" onclick="startStory()">
-
+<button onclick="beginStory()">
 Begin Our Story ❤️
-
 </button>
 
 </div>
 
-<div id="story">
-
-<div class="reason">
-
-<h2 id="title"></h2>
-
-<p id="text"></p>
-
-<button id="next" onclick="nextReason()">
-
-Next ❤️
-
-</button>
-
-</div>
-
-</div>
-
-<audio id="music">
-
+<audio id="voice">
 <source src="New Recording.m4a" type="audio/mp4">
-
 </audio>
 
 <script>
 
-const photos=[
-"IMG_0331.jpeg"
-];
-
-const reasons=[
-
-"Because you came into my life when I needed someone the most.",
-
-"Because your smile brightens my day.",
-
-"Because your voice brings me peace.",
-
-"Because you make ordinary days feel special.",
-
-"Because you always know how to make me laugh.",
-
-"Because you believe in me.",
-
-"Because you support my dreams.",
-
-"Because you never stop caring.",
-
-"Because your hugs feel like home.",
-
-"Because you make me feel safe.",
-
-"Because you're honest with me.",
-
-"Because you accept me as I am.",
-
-"Because we can talk for hours.",
-
-"Because every memory with you is precious.",
-
-"Because you make me a better person.",
-
-"Because you're my best friend.",
-
-"Because you always stand by me.",
-
-"Because your happiness matters to me.",
-
-"Because I love the way you look at me.",
-
-"Because every moment with you is unforgettable.",
-
-"Because you make my heart smile.",
-
-"Because you're my favourite notification.",
-
-"Because you understand me without many words.",
-
-"Because I can be completely myself around you.",
-
-"Because loving you feels so natural.",
-
-"Because your love gives me strength.",
-
-"Because you always know how to cheer me up.",
-
-"Because every call with you makes my day better.",
-
-"Because you make distance feel smaller.",
-
-"Because your happiness makes me happy.",
-
-"Because you encourage me to become a better person.",
-
-"Because you're patient with me.",
-
-"Because you respect me.",
-
-"Because I trust you with my whole heart.",
-
-"Because every memory with you is worth keeping forever.",
-
-"Because your little surprises make me smile.",
-
-"Because your laugh is my favourite sound.",
-
-"Because you're the first person I think about every morning.",
-
-"Because you're the last person I think about every night.",
-
-"Because you make my heart race.",
-
-"Because every 'I love you' feels special.",
-
-"Because you make me believe in forever.",
-
-"Because you're my safe place.",
-
-"Because you make even simple conversations unforgettable.",
-
-"Because your presence makes everything better.",
-
-"Because you understand my silence.",
-
-"Because you're always worth waiting for.",
-
-"Because you're the best part of my life.",
-
-"Because you're my home.",
-
-"Because I would choose you again and again. ❤️"
-];
-
-let current=0;
-
-const photo=document.getElementById("photo");
-
-const title=document.getElementById("title");
-
-const text=document.getElementById("text");
-
-const music=document.getElementById("music");
+const voice=document.getElementById("voice");
 
 function playVoice(){
 
-music.volume=.5;
-
-music.play();
-
-}
-
-function startStory(){
-
-document.getElementById("welcome").style.display="none";
-
-document.getElementById("story").style.display="flex";
-
-showReason();
+voice.volume=.5;
+voice.play();
 
 }
 
-function showReason(){
+function beginStory(){
 
-photo.style.opacity=0;
-
-setTimeout(()=>{
-
-photo.src=photos[current%photos.length];
-
-title.textContent="Reason "+(current+1)+" ❤️";
-
-text.textContent=reasons[current];
-
-photo.style.opacity=1;
-
-photo.style.transform="scale(1.12)";
-
-},500);
+alert("Part 2 Coming ❤️");
 
 }
-
-function nextReason(){
-
-current++;
-
-if(current>=reasons.length){
-
-showEnding();
-
-return;
-
-}
-
-showReason();
-
-}
-
-function showEnding(){
-
-document.getElementById("story").innerHTML=`
-
-<div style="
-
-height:100vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:35px;
-
-color:white;
-
-">
-
-<h1 style="font-size:48px;margin-bottom:30px;">
-
-❤️ Forever & Always ❤️
-
-</h1>
-
-<p style="font-size:28px;line-height:1.8;max-width:850px;">
-
-No matter how many reasons I write...
-
-I'll always find another one.
-
-Thank you for being my favourite person,
-
-my safest place,
-
-and the love of my life.
-
-I will choose you
-
-today,
-
-tomorrow,
-
-and forever.
-
-❤️
-
-</p>
-
-</div>
-
-`;
-
-}
-
-showReason();
 
 </script>
 
 </body>
-
 </html>
