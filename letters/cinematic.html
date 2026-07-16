@@ -203,21 +203,99 @@ margin-bottom:50px;
 
 #next{
 
-margin-top:40px;
-
-padding:18px 42px;
+padding:18px 65px;
 
 border:none;
 
-border-radius:50px;
+border-radius:60px;
 
-font-size:20px;
+font-size:28px;
 
 font-weight:bold;
 
+color:white;
+
 cursor:pointer;
 
-color:#b5179e;
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border:2px solid rgba(255,255,255,.35);
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+transition:.35s;
+
+animation:float 2.5s ease-in-out infinite;
+
+}
+
+#next:hover{
+
+transform:scale(1.08);
+
+background:rgba(255,255,255,.28);
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes slideUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
 
 }
 
